@@ -237,7 +237,7 @@ flopenrc #(5) r6_1(
 //sign extend
 sign_extend u5(
 	.a(instrD[15:0]),// input wire [15:0] a,
-	.select(instr[29:28]),
+	.select(instrD[29:28]),
 	.y(SignImmD)// output wire [31:0] y
     );
 

@@ -2,12 +2,12 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Thu Dec 31 16:09:50 2020
-# Process ID: 17608
-# Current directory: D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.runs/synth_1
+# Start of session at: Thu Dec 31 17:35:44 2020
+# Process ID: 10576
+# Current directory: C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.runs/synth_1
 # Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
-# Log file: D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.runs/synth_1/top.vds
-# Journal file: D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.runs/synth_1\vivado.jou
+# Log file: C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.runs/synth_1/top.vds
+# Journal file: C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top.tcl -notrace
 Command: synth_design -top top -part xc7a100tcsg324-1
@@ -16,13 +16,12 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 1704 
-WARNING: [Synth 8-1849] concatenation with unsized literal; will interpret as 32 bits [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/alu_57inst.v:58]
+INFO: Helper process launched with PID 2832 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 870.281 ; gain = 241.152
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 862.879 ; gain = 234.859
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:23]
-INFO: [Synth 8-638] synthesizing module 'inst_ram' [d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/synth/inst_ram.vhd:72]
+INFO: [Synth 8-6157] synthesizing module 'top' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:23]
+INFO: [Synth 8-638] synthesizing module 'inst_ram' [c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/synth/inst_ram.vhd:72]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -98,10 +97,10 @@ INFO: [Synth 8-638] synthesizing module 'inst_ram' [d:/thirdyear/hardwareSysthes
 	Parameter C_COUNT_36K_BRAM bound to: 0 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     3.53845 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'd:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/synth/inst_ram.vhd:239]
-INFO: [Synth 8-256] done synthesizing module 'inst_ram' (9#1) [d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/synth/inst_ram.vhd:72]
-WARNING: [Synth 8-7023] instance 'iram' of module 'inst_ram' has 8 connections declared, but only 6 given [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:47]
-INFO: [Synth 8-638] synthesizing module 'data_ram' [d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/synth/data_ram.vhd:72]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/synth/inst_ram.vhd:239]
+INFO: [Synth 8-256] done synthesizing module 'inst_ram' (9#1) [c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/synth/inst_ram.vhd:72]
+WARNING: [Synth 8-7023] instance 'iram' of module 'inst_ram' has 8 connections declared, but only 6 given [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:47]
+INFO: [Synth 8-638] synthesizing module 'data_ram' [c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/synth/data_ram.vhd:72]
 	Parameter C_FAMILY bound to: artix7 - type: string 
 	Parameter C_XDEVICEFAMILY bound to: artix7 - type: string 
 	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
@@ -177,51 +176,171 @@ INFO: [Synth 8-638] synthesizing module 'data_ram' [d:/thirdyear/hardwareSysthes
 	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
 	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
 	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.96495 mW - type: string 
-INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'd:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/synth/data_ram.vhd:239]
-INFO: [Synth 8-256] done synthesizing module 'data_ram' (10#1) [d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/synth/data_ram.vhd:72]
-WARNING: [Synth 8-7023] instance 'dram' of module 'data_ram' has 8 connections declared, but only 6 given [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:58]
-INFO: [Synth 8-6157] synthesizing module 'mips' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:23]
-INFO: [Synth 8-6157] synthesizing module 'controller' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/controller.v:23]
-INFO: [Synth 8-6157] synthesizing module 'maindec' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:23]
-WARNING: [Synth 8-151] case item 6'b000000 is unreachable [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:55]
-INFO: [Synth 8-155] case statement is not full and has no default [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:58]
-WARNING: [Synth 8-3848] Net jal in module/entity maindec does not have driver. [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:28]
-INFO: [Synth 8-6155] done synthesizing module 'maindec' (11#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:23]
-INFO: [Synth 8-6157] synthesizing module 'aludec' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/aludec_57inst.v:24]
-INFO: [Synth 8-6155] done synthesizing module 'aludec' (12#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/aludec_57inst.v:24]
-INFO: [Synth 8-6157] synthesizing module 'floprc' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_4' declared at 'c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_4' [c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/synth/data_ram.vhd:239]
+INFO: [Synth 8-256] done synthesizing module 'data_ram' (10#1) [c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/synth/data_ram.vhd:72]
+WARNING: [Synth 8-7023] instance 'dram' of module 'data_ram' has 8 connections declared, but only 6 given [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:58]
+INFO: [Synth 8-6157] synthesizing module 'mips' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:23]
+INFO: [Synth 8-6157] synthesizing module 'controller' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/controller.v:23]
+INFO: [Synth 8-6157] synthesizing module 'maindec' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:23]
+WARNING: [Synth 8-151] case item 6'b000000 is unreachable [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:55]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:58]
+WARNING: [Synth 8-3848] Net jal in module/entity maindec does not have driver. [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'maindec' (11#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:23]
+INFO: [Synth 8-6157] synthesizing module 'aludec' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/aludec_57inst.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'aludec' (12#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/aludec_57inst.v:24]
+INFO: [Synth 8-6157] synthesizing module 'floprc' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
 	Parameter WIDTH bound to: 1 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'floprc' (13#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
-INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'floprc' (13#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized0' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
 	Parameter WIDTH bound to: 8 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (13#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'controller' (14#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/controller.v:23]
-WARNING: [Synth 8-6104] Input port 'data_ram_wea' has an internal driver [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:54]
-INFO: [Synth 8-6157] synthesizing module 'datapath' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:22]
-INFO: [Synth 8-6157] synthesizing module 'pc' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/pc.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'pc' (15#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/pc.v:23]
-INFO: [Synth 8-6157] synthesizing module 'adder' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/adder.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'adder' (16#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/adder.v:23]
-INFO: [Synth 8-6157] synthesizing module 'flopenrc' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized0' (13#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'controller' (14#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/controller.v:23]
+WARNING: [Synth 8-6104] Input port 'data_ram_wea' has an internal driver [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:54]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:22]
+INFO: [Synth 8-6157] synthesizing module 'pc' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/pc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'pc' (15#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/pc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'adder' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'adder' (16#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
 	Parameter WIDTH bound to: 32 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (17#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
-INFO: [Synth 8-6157] synthesizing module 'regfile' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/regfile.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'regfile' (18#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/regfile.v:23]
-INFO: [Synth 8-6157] synthesizing module 'mux4x1_forwardD' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux4x1_forwardD.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'mux4x1_forwardD' (19#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux4x1_forwardD.v:23]
-INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized0' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc' (17#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/regfile.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (18#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/regfile.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux4x1_forwardD' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux4x1_forwardD.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mux4x1_forwardD' (19#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux4x1_forwardD.v:23]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized0' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
 	Parameter WIDTH bound to: 5 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized0' (19#1) [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
-ERROR: [Synth 8-439] module 'sign_extend' not found [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:238]
-ERROR: [Synth 8-6156] failed synthesizing module 'datapath' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:22]
-ERROR: [Synth 8-6156] failed synthesizing module 'mips' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:23]
-ERROR: [Synth 8-6156] failed synthesizing module 'top' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:23]
----------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 1245.430 ; gain = 616.301
----------------------------------------------------------------------------------
-RTL Elaboration failed
-INFO: [Common 17-83] Releasing license: Synthesis
-35 Infos, 6 Warnings, 0 Critical Warnings and 5 Errors encountered.
-synth_design failed
-ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 31 16:11:02 2020...
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized0' (19#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sign_extend' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/sign_extend_57inst.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sign_extend' (20#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/sign_extend_57inst.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux3x1_forward' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux3x1_forward.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mux3x1_forward' (21#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux3x1_forward.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2x1_32' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_32.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mux2x1_32' (22#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_32.v:23]
+INFO: [Synth 8-6157] synthesizing module 'hazard_unit' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/hazard_unit.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'hazard_unit' (23#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/hazard_unit.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'memtoregM' does not match port width (1) of module 'hazard_unit' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:300]
+INFO: [Synth 8-6157] synthesizing module 'alu' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/alu_57inst.v:25]
+WARNING: [Synth 8-3848] Net zero in module/entity alu does not have driver. [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/alu_57inst.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (24#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/alu_57inst.v:25]
+INFO: [Synth 8-6157] synthesizing module 'flopenrc__parameterized1' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
+	Parameter WIDTH bound to: 1 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'flopenrc__parameterized1' (24#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v:23]
+INFO: [Synth 8-6157] synthesizing module 'sl2' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/sl2.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'sl2' (25#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/sl2.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux2x1_5' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_5.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'mux2x1_5' (26#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_5.v:23]
+WARNING: [Synth 8-689] width (5) of port connection 'q' does not match port width (32) of module 'flopenrc' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:382]
+WARNING: [Synth 8-689] width (5) of port connection 'q' does not match port width (32) of module 'flopenrc' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:392]
+INFO: [Synth 8-6157] synthesizing module 'floprc__parameterized1' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'floprc__parameterized1' (26#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v:23]
+WARNING: [Synth 8-3848] Net memtoregM in module/entity datapath does not have driver. [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:57]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (27#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:22]
+WARNING: [Synth 8-7023] instance 'dp' of module 'datapath' has 25 connections declared, but only 24 given [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:67]
+WARNING: [Synth 8-3848] Net branch in module/entity mips does not have driver. [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:36]
+WARNING: [Synth 8-3848] Net flushE in module/entity mips does not have driver. [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:36]
+INFO: [Synth 8-6155] done synthesizing module 'mips' (28#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v:23]
+WARNING: [Synth 8-3848] Net data_ram_wea in module/entity top does not have driver. [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:36]
+INFO: [Synth 8-6155] done synthesizing module 'top' (29#1) [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:23]
+WARNING: [Synth 8-3331] design sl2 has unconnected port a[31]
+WARNING: [Synth 8-3331] design sl2 has unconnected port a[30]
+WARNING: [Synth 8-3331] design alu has unconnected port zero
+WARNING: [Synth 8-3331] design hazard_unit has unconnected port memtoregM
+WARNING: [Synth 8-3331] design hazard_unit has unconnected port pcsrcD
+WARNING: [Synth 8-3331] design maindec has unconnected port jal
+WARNING: [Synth 8-3331] design controller has unconnected port flushE
+WARNING: [Synth 8-3331] design controller has unconnected port instr[25]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[24]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[23]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[22]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[21]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[20]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[19]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[18]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[17]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[16]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[15]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[14]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[13]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[12]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[11]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[10]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[9]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[8]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[7]
+WARNING: [Synth 8-3331] design controller has unconnected port instr[6]
+WARNING: [Synth 8-3331] design mips has unconnected port out_branch
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[31]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[30]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[29]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[28]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[27]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[26]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[25]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[24]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[23]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[22]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[21]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[20]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[19]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[18]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[17]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[16]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[15]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[14]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[13]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[12]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[11]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[10]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DOUTB_I[0]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port SBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port DBITERR_I
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[5]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[4]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[3]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[2]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[1]
+WARNING: [Synth 8-3331] design blk_mem_output_block__parameterized0 has unconnected port RDADDRECC_I[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port WEB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port WEB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port WEB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port ADDRB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[35]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[34]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[33]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[32]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[31]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[30]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[29]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init__parameterized0 has unconnected port DINB[28]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.

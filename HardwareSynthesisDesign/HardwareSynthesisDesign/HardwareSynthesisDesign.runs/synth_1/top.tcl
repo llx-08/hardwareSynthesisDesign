@@ -23,43 +23,44 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/wt [current_project]
-set_property parent.project_path D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/wt [current_project]
+set_property parent.project_path C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.xpr [current_project]
 set_property XPM_LIBRARIES XPM_MEMORY [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/ip [current_project]
+set_property ip_output_repo c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mipstest.coe
-add_files D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/ShiftInstTest/obj/inst_ram.coe
-add_files D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/ShiftInstTest/obj/data_ram.coe
-add_files D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/LogicInstTest/obj/inst_ram.coe
-add_files D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/LogicInstTest/obj/data_ram.coe
+add_files C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mipstest.coe
+add_files C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/ShiftInstTest/obj/inst_ram.coe
+add_files C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/ShiftInstTest/obj/data_ram.coe
+add_files C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/LogicInstTest/obj/inst_ram.coe
+add_files C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/test_independent_coe/LogicInstTest/obj/data_ram.coe
 read_verilog -library xil_defaultlib {
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/adder.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/alu_57inst.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/aludec_57inst.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/controller.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/hazard_unit.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_32.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_5.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux3x1_forward.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux4x1_forwardD.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/pc.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/regfile.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/sl2.v
-  D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/adder.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/alu_57inst.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/aludec_57inst.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/controller.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/flopenrc.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/floprc.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/hazard_unit.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mips.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_32.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux2x1_5.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux3x1_forward.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/mux4x1_forwardD.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/pc.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/regfile.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/sign_extend_57inst.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/sl2.v
+  C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v
 }
-read_ip -quiet D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/data_ram.xci
-set_property used_in_implementation false [get_files -all d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/data_ram_ooc.xdc]
+read_ip -quiet C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/data_ram.xci
+set_property used_in_implementation false [get_files -all c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/data_ram/data_ram_ooc.xdc]
 
-read_ip -quiet D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci
-set_property used_in_implementation false [get_files -all d:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/inst_ram_ooc.xdc]
+read_ip -quiet C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci
+set_property used_in_implementation false [get_files -all c:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/ip/inst_ram/inst_ram_ooc.xdc]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
