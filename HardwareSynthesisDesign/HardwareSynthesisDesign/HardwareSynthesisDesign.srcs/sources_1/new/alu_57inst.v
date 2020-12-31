@@ -52,11 +52,14 @@ module alu(
 //			`EXE_LB_OP, `EXE_LBU_OP, `EXE_LH_OP, `EXE_LHU_OP, `EXE_LW_OP, `EXE_SB_OP, `EXE_SH_OP, `EXE_SW_OP:y <= sa + {16{offset[15]}, offset};
 			// logic inst
 			`EXE_AND_OP : y <= a & b;
+			`EXE_ANDI_OP: y <= a & b;
 			`EXE_OR_OP  : y <= a | b;
 			`EXE_XOR_OP : y <= a ^ b;
+			`EXE_XORI_OP: y <= a ^ b;
 			`EXE_NOR_OP : y <= ~(a | b);
-			`EXE_LUI_OP : y <= {b[15:0], {16{0}}}; //lui b?16位为立即数，?16位为0
+			`EXE_LUI_OP : y <= b << 16; //lui b?16位为立即数，?16位为0
 			`EXE_ORI_OP : y <= a | b;
+			
 			// shift inst
 			`EXE_SLL_OP : y <= b << sa;
 			`EXE_SLLV_OP: y <= b << a[4:0];

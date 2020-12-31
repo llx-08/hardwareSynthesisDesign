@@ -25,5 +25,8 @@ module sign_extend(
 	input  wire [1:0]  select,
 	output wire [31:0] y
     );
+
 	assign y = (select == 2'b11) ? {{16{1'b0}}, a} : {{16{a[15]}} , a};
+
+
 endmodule

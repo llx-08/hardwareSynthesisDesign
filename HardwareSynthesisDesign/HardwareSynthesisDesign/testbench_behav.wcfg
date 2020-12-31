@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="126913fs"></ZoomStartTime>
-      <ZoomEndTime time="294714fs"></ZoomEndTime>
-      <Cursor1Time time="249313fs"></Cursor1Time>
+      <ZoomStartTime time="281710fs"></ZoomStartTime>
+      <ZoomEndTime time="422611fs"></ZoomEndTime>
+      <Cursor1Time time="330100fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="134"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="130"></NameColumnWidth>
+      <ValueColumnWidth column_width="60"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="29" />
    <wvobject fp_name="/testbench/clk" type="logic">
@@ -44,16 +44,6 @@
       <obj_property name="ElementShortName">op[7:0]</obj_property>
       <obj_property name="ObjectShortName">op[7:0]</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/c/u2/alucontrol" type="array">
-      <obj_property name="ElementShortName">alucontrol[7:0]</obj_property>
-      <obj_property name="ObjectShortName">alucontrol[7:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/c/u2/op" type="array">
-      <obj_property name="ElementShortName">op[5:0]</obj_property>
-      <obj_property name="ObjectShortName">op[5:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/iram/douta" type="array">
@@ -98,6 +88,11 @@
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/u2/alucontrol" type="array">
+      <obj_property name="ElementShortName">alucontrol[7:0]</obj_property>
+      <obj_property name="ObjectShortName">alucontrol[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/mem_rdata" type="array">
       <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
@@ -114,17 +109,30 @@
       <obj_property name="ElementShortName">addra[31:0]</obj_property>
       <obj_property name="ObjectShortName">addra[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/u2/op" type="array">
+      <obj_property name="ElementShortName">op[5:0]</obj_property>
+      <obj_property name="ObjectShortName">op[5:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#E0FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/u6/a" type="array">
       <obj_property name="ElementShortName">a[31:0]</obj_property>
       <obj_property name="ObjectShortName">a[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/u6/b" type="array">
       <obj_property name="ElementShortName">b[31:0]</obj_property>
       <obj_property name="ObjectShortName">b[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/u6/y" type="array">
       <obj_property name="ElementShortName">y[31:0]</obj_property>
       <obj_property name="ObjectShortName">y[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/SignImmD" type="array">
       <obj_property name="ElementShortName">SignImmD[31:0]</obj_property>
@@ -142,5 +150,6 @@
    <wvobject fp_name="/testbench/test/u/c/alucontrolE" type="array">
       <obj_property name="ElementShortName">alucontrolE[7:0]</obj_property>
       <obj_property name="ObjectShortName">alucontrolE[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>
