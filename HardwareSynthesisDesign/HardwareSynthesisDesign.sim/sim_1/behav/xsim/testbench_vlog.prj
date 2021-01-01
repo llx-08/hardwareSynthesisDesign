@@ -8,6 +8,7 @@ verilog xil_defaultlib  --include "../../../../rtls" \
 "../../../../rtls/controller.v" \
 "../../../../rtls/datapath.v" \
 "../../../../HardwareSynthesisDesign.srcs/sources_1/new/div.v" \
+"../../../../HardwareSynthesisDesign.srcs/sources_1/new/eqcmp.v" \
 "../../../../rtls/flopenrc.v" \
 "../../../../rtls/floprc.v" \
 "../../../../rtls/hazard_unit.v" \

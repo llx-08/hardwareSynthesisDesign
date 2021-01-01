@@ -24,12 +24,12 @@ module datapath(
 	input wire clka,rst,
 	input wire memtoregW,regwriteW, 
 				regwriteM,regwriteE,
-				alusrcE, regdstE, jumpE, 
+				alusrcE, regdstE, jumpD, 
 				memtoregE,branchD,
 	input wire  [7:0] alucontrolE,
 	input wire  [31:0] instr, mem_rdata,
 
-	input wire HiorLoW, DataMoveW, WriteHiLoW, // 硬综添加
+	input wire HiorLoW, DataMoveW, WriteHiLoW, jrD, jalE, balE, jalrD, jalrE, // 硬综添加
 
 	output wire out_pcsrc,out_zero,out_flushE,
 	output wire [31:0] pc,out_pc_next_jump,
@@ -42,7 +42,7 @@ wire pcsrcD,zero,zeroM;
 wire stallF,stallD,flushE;
 wire [1:0]  forwardAE,forwardBE,forwardAD,forwardBD;
 
-wire [4:0] writeregE,writeregM,writeregW,
+wire [4:0] writeregEtmp, writeregE, writeregM, writeregW,
 		   RtE,RdE,RsE,RsD,RtD, saD, saE;
 //硬综在这里新加了一条saD,saE
 
@@ -51,12 +51,13 @@ wire [31:0] pc_plus4F,pc_plus4D,pc_plus4E,
 			rd1,rd1D,SrcAE,
 			rd2,rd2D,SrcBE,
 			SignImmD,SignImmE,imm_sl2,
-			alu_result,aluoutW,
+			alu_result, aluoutW,
+			alu_result_tmp,   //该行新加了alu_result_tmp
 			writedataE,writedataM,
 			wa3,resultW,rd1E,rd2E,
 			ReadDataW,pc_next,
 			pc_branchD,pc_branchM,
-			pc_next_jump, 
+			pc_next_jump_tmp, pc_next_jump, 
 			memtoregM,memwriteM,
 			branchE; 
 
@@ -184,7 +185,7 @@ mux4x1_forwardD d_forwardB(
 // 	.y(rd2D)// output wire [31:0] y
 //     );
 
-assign pcsrcD = ((rd1D == rd2D) && branchD);
+// assign pcsrcD = ((rd1D == rd2D) && branchD);//计组这么写的，在硬综中应该把pcsrcD换为eqcmp的输出，故该处注释掉
 
 //Decode to Excute rd1
 flopenrc #(32) r3(
@@ -270,14 +271,14 @@ flopenrc #(32) r7(
     );
 
 //Decode to Excute pc+4
-// flopenrc #(32) r8(
-// 	.clk(clka),
-// 	.rst(rst),
-// 	.en(1'b1),
-// 	.clear(flushE),
-// 	.d(pc_plus4D),// input wire [WIDTH - 1:0] d,
-// 	.q(pc_plus4E)// output reg [WIDTH - 1:0] q
-//     );
+flopenrc #(32) r8(
+	.clk(clka),
+	.rst(rst),
+	.en(1'b1),
+	.clear(flushE),
+	.d(pc_plus4D),// input wire [WIDTH - 1:0] d,
+	.q(pc_plus4E)// output reg [WIDTH - 1:0] q
+    );
 
 mux3x1_forward srca_sel(
 	.a(rd1E),// input wire [31:0] a,b,c,
@@ -333,7 +334,7 @@ alu u6(
 	.b(SrcBE),// input wire [31:0] b,
 	.op(alucontrolE),// alucontrol
 	.sa(saE),
-	.y(alu_result),// output reg [31:0] s
+	.y(alu_result_tmp),// output reg [31:0] s
     .zero(zero)
     );
 
@@ -398,11 +399,11 @@ mux2x1_5 mux_wa3(
 	.a(RdE),// input wire [4:0] a,
 	.b(RtE),// input wire [4:0] b,
 	.s(regdstE),// regdst
-	.y(writeregE)// output wire [4:0] y 
+	.y(writeregEtmp)// output wire [4:0] y 
     );
 
 //Excute to Memory writetoreg
-flopenrc #(32) r13(
+flopenrc #(5) r13(
 	.clk(clka),
 	.rst(rst),
 	.en(1'b1),
@@ -461,8 +462,8 @@ sl2 jump_left_shift2(
 mux2x1_32 mux_pc_jump(
 	.a({pc_plus4F[31:28],instr_sl2[27:0]}),// input wire [31:0] a,
 	.b(pc_next),// insput wire [31:0] b,
-	.s(jumpE),// Mjump
-	.y(pc_next_jump)// output wire [31:0] y 
+	.s(jumpD),// Mjump
+	.y(pc_next_jump_tmp)// output wire [31:0] y 
     );
 
 //pc_add_4
@@ -531,48 +532,56 @@ mux2x1_32 mux_datamove(
 
 //----------------------------------------------------------
 //添加jr所需要的通路：读的地址是rs寄存器的地址
-// wire jrD;
-// // wire [31:0] pc_next_jump_tmp; 在line54增加了定义
+// 需要增加一个 wire [31:0] pc_next_jump_tmp 这里因为前面就需要用到，所以在line60提前定义了
 
-// mux2x1_32 mux_jr(
-// 	.a(rd1D),
-// 	.b(pc_next_jump_tmp),
-// 	.s(jrD),
-// 	.y(pc_next_jump)
-// 	);
+mux2x1_32 mux_jr(
+	.a(rd1D),
+	.b(pc_next_jump_tmp),
+	.s(jrD | jalrD),
+	.y(pc_next_jump)
+	);
 
 //----------------------------------------------------------
 
 
 //----------------------------------------------------------
 //添加jal所需要的，那边写入寄存器的地址应该是31，还有增加一个pc+8，复用aluoutM传下去
-// wire [4:0] writeregEtmp;这里在line42增加了定义
-// 在line49添加了 wire[31:0] alu_result_tmp
-// wire [31:0]  pc_plus8E;
-
-// mux2x1_5 mux_writeaddress_jal(
-// 	.a(5'b11111),  //表示31号寄存器
-// 	.b(writeregEtmp),
-// 	.s((jalE | balE | ( jalr & (rdE == 5'b0) ) )),
-// 	.y(writeregE)
-// 	);
+// 需要增加一个 wire [4:0] writeregEtmp     前面需要用到，所以在line45提前定义了
+// 需要增加一个 wire[31:0] alu_result_tmp 	前面需要用到，所以在line55提前定义了
+wire [31:0]  pc_plus8E;
 
 
-// adder adder_jal(
-// 	.a(pc_plus4E),//input wire[31:0] a,b
-// 	.b(32'b100),  //b这个地方接一个4
-// 	.y(pc_plus8E) 	   //output wire[31:0] y
-//     );
+
+mux2x1_5 mux_writeaddress_jal(
+	.a(5'b11111),  //表示31号寄存器
+	.b(writeregEtmp),
+	.s( (jalE | balE | ( jalrE & ( RdE == 5'b0 ) ) ) ),
+	.y(writeregE)
+	);
 
 
-// mux2x1_32 mux_pcplus8_jal(
-// 	.a(alu_result_tmp),
-// 	.b(pc_next_jump_tmp),
-// 	.s( (jalE | balE) ),
-// 	.y(alu_result)
-// 	);
+adder adder_jal(
+	.a(pc_plus4E),	//input wire[31:0] a,b
+	.b(32'b100),  	//b这个地方接一个4
+	.y(pc_plus8E) 	//output wire[31:0] y
+	);
+
+
+mux2x1_32 mux_pcplus8_jal(
+	.a(pc_plus8E),
+	.b(alu_result_tmp),
+	.s( (jalE | balE | jalrE) ),
+	.y(alu_result)
+	);
 
 //----------------------------------------------------------
-
+//----------------------------------------------------------
+eqcmp branch_cmp(
+	.a(rd1D),// input  wire [31:0] a, b,
+	.b(rd2D),
+	.op(instrD[31:26]),// input  wire [5:0]  op,
+	.rt(instrD[20:16]),// input  wire [4:0]  rt,
+	.y(pcsrcD)// output wire y
+    );
 
 endmodule

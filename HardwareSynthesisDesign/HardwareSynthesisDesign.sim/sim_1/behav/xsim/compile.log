@@ -12,9 +12,11 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitV
 INFO: [VRFC 10-311] analyzing module controller
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module datapath
-INFO: [VRFC 10-2458] undeclared symbol end_div, assumed default net type wire [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:347]
+INFO: [VRFC 10-2458] undeclared symbol end_div, assumed default net type wire [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:348]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/div.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module div
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/eqcmp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module eqcmp
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/flopenrc.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module flopenrc
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/floprc.v" into library xil_defaultlib
@@ -27,7 +29,6 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitV
 INFO: [VRFC 10-311] analyzing module hilo_reg
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module maindec
-INFO: [VRFC 10-2458] undeclared symbol jar, assumed default net type wire [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/maindec.v:35]
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/mips.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mips
 INFO: [VRFC 10-2263] Analyzing Verilog file "D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/mux2x1_32.v" into library xil_defaultlib

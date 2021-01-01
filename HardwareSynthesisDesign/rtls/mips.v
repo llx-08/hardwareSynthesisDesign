@@ -33,15 +33,16 @@ module mips(
 	output wire out_pcsrc,out_zero,out_branch,out_jump
     );
 
-	wire flushE,branchD,memtoreg,memtoregE_out,alusrc,regdstE,regwriteW,regwriteE,regwriteM_out,jump,zero,memen,branch,memwrite;
+	wire flushE,branchD,memtoreg,memtoregE_out,alusrc,regdstE,regwriteW,regwriteE,regwriteM_out, jumpD ,zero,memen,branch,memwrite;
 	wire[7:0] alucontrol;
 	wire [31:0] instrD_out;
 
-	wire DataMoveW, WriteHiLoW, HiorLoW;
+	wire DataMoveW, WriteHiLoW, HiorLoW;//硬综中DataMove指令需要增加的信号
+	wire jrD, jalE, balE, jalrD, jalrE; 		// 硬综中增加j类与beq类指令需要增加的信号
 
 	assign out_branch = branch;
 	assign out_regwrite = regwriteW;
-	assign out_jump = jump;
+	assign out_jump = jumpD;
 	assign inst_ram_ena = 1'b1;
 	//cpu一般都是一直在读指令的，所以置为1
 	
@@ -60,12 +61,13 @@ module mips(
 		.regwriteE(regwriteE),
 		.memtoregE_out(memtoregE_out),
 		.regwriteM_out(regwriteM_out),
-		.jumpD(jump),
+		.jumpD(jumpD),
 		.memenM(data_ram_ena),
 		.alucontrolE(alucontrol),		
 		.branchD_out(branchD),
 
-		.DataMoveW(DataMoveW), .WriteHiLoW(WriteHiLoW), .HiorLoW(HiorLoW)
+		.jrD(jrD), .jalE(jalE), .balE(balE), .jalrD(jalrD), .jalrE(jalrE),				 //硬综中j类指令需要增加的信号
+		.DataMoveW(DataMoveW), .WriteHiLoW(WriteHiLoW), .HiorLoW(HiorLoW)//硬综中DataMove指令需要增加的信号
 
 		);
 
@@ -78,7 +80,10 @@ module mips(
 		.out_pc_next_jump(out_pc_next_jump),
 		.instr(instr),//input
 
-		.DataMoveW(DataMoveW), .WriteHiLoW(WriteHiLoW), .HiorLoW(HiorLoW),
+
+		.DataMoveW(DataMoveW), .WriteHiLoW(WriteHiLoW), .HiorLoW(HiorLoW),//硬综中DataMove指令需要增加的信号
+		.jrD(jrD), .jalE(jalE), .balE(balE), .jalrD(jalrD), .jalrE(jalrE),// 硬综中增加j类与beq类指令需要增加的信号
+
 
 		.instrD_out(instrD_out),//output to controller
 		.mem_rdata(mem_rdata),
@@ -89,7 +94,7 @@ module mips(
 		.regwriteE(regwriteE),
 		.alusrcE(alusrc),
 		.regdstE(regdstE),
-		.jumpE(jump),
+		.jumpD(jumpD),
 		.branchD(branchD),
 		.alucontrolE(alucontrol),
 		.mem_wdata(mem_wdata),

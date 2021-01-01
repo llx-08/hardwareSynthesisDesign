@@ -55,3 +55,37 @@ _start:
 
 <img src="image_for_report/datamoveInst_TestResult_zoomon.png" alt="img1" style="zoom: 100%;" />
 
+
+
+
+
+测试J类指令的时候的两个问题：
+
+1.jar指令的时候出错。因为测试文件中已经给出了各个被赋值的寄存器应该是什么值，所以如果当测试文件执行完了，寄存器1的值应该是确定的，所以只需要检查到最后的寄存器1的值。但是仿真的时候发现最后一步是错误的，我们发现在图中红框处，pc的值是一个错误的值，本来应该是00000040，但是现在是00000000。这个原因，我们猜测可能是多路选择器的选择信号接错，也可能是maindecoder对于信号的解析出现了错误。
+
+<img src="image_for_report/first_wrong_in_jTest.png" alt="img1" style="zoom: 100%;" />
+
+查看maindecoder之后，发现是因为疏漏，解析信号少写了一个，然后因为从低位开始对齐，所以信号就乱掉了。
+
+<img src="image_for_report/reason_of_first_wrong_in_jTest.png" alt="img1" style="zoom: 100%;" />
+
+
+
+改正之后正确的波形图如下所示，这次的下一个pc应该跳到的是00000040：
+
+<img src="image_for_report/solved_first_wrong.png" alt="img1" style="zoom: 100%;" />
+
+
+
+2，对于jal型指令，本来设想的是jal信号为1，其他无关的信号均为0，但是实际上，因为jal指令本来就是jump and link的意思，它所需要的下一个pc的地址也是指令中跳转的地址，如下图，起关键作用的信号为jumpD，在这里，jumpD的信号也应该是1，才能满足指令的要求
+
+这里记得新截一张图，下面的jumpE应该改名为jumpD！！！
+
+
+
+<img src="image_for_report/second_wrong_in_jTest.png" alt="img1" style="zoom: 100%;" />
+
+
+
+
+

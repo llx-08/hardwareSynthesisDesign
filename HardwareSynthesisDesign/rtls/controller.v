@@ -31,6 +31,7 @@ module controller(
 				branchD_out,
 	output wire [7:0] alucontrolE,
 
+	output wire jrD, jalE, balE, jalrD, jalrE,
 	output wire DataMoveW, WriteHiLoW, HiorLoW
     );
 
@@ -40,15 +41,15 @@ wire memtoregD,memtoregE,memtoregM,
 	 alusrcD,
 	 regdstD, 
 	 memenD,memenE,
-	 branchD,branchE,
-	 jal,
-	 jr,
-	 bal,
-	 jalr;
+	 branchD,branchE;
+
 
 wire DataMoveD, WriteHiLoD, HiorLoD;
 wire DataMoveE, WriteHiLoE, HiorLoE;
 wire DataMoveM, WriteHiLoM, HiorLoM;
+
+wire jalD;
+wire balD;
 
 wire [7:0] alucontrolD;
 wire [1:0] aluop;
@@ -70,10 +71,10 @@ maindec u1(
 	.jump(jumpD), 
 	.memen(memenD),
 	.branch(branchD),
-	.jal(jal),
-	.jr(jr),
-	.bal(bal),
-	.jalr(jalr),
+	.jal(jalD),
+	.jr(jrD),
+	.bal(balD),
+	.jalr(jalrD),
 	.DataMove(DataMoveD), 
 	.WriteHiLo(WriteHiLoD), 
 	.HiorLo(HiorLoD)
@@ -194,6 +195,8 @@ floprc #(1) c13(
 
 // Hard Synthesis Design
 
+// DataMove类指令所需信号------------------------------------------
+
 // DataMove
 floprc #(1) DataMove_D2E(
 	.clk(clk),
@@ -268,4 +271,38 @@ floprc #(1) HiorLo_M2W(
 	.d(HiorLoM),// input wire [WIDTH - 1:0] d,
 	.q(HiorLoW)// output reg [WIDTH - 1:0] q
     );
+
+
+//-----------------------------------------------------------
+
+
+// j类指令所需信号---------------------------------------
+
+//jal
+floprc #(1) jal_D2E(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(jalD),// input wire [WIDTH - 1:0] d,
+	.q(jalE)// output reg [WIDTH - 1:0] q
+    );
+
+//bal
+floprc #(1) bL_D2E(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(balD),// input wire [WIDTH - 1:0] d,
+	.q(balE)// output reg [WIDTH - 1:0] q
+    );
+
+//jalr
+floprc #(1) jalr_D2E(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(jalrD),// input wire [WIDTH - 1:0] d,
+	.q(jalrE)// output reg [WIDTH - 1:0] q
+    );
+
 endmodule
