@@ -4,13 +4,13 @@ Running: D:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 283e5f7a1a
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'memtoregM' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:300]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:381]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:382]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:391]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:392]
-WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:47]
-WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/с╡вш/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'memtoregM' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:300]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:385]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:386]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:395]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:396]
+WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:47]
+WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:58]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

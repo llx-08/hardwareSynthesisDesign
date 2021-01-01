@@ -67,12 +67,15 @@ module maindec(
 							sigs <= {15'b0_0_0_0_0_0_0_0_0_0_0_1_1_1_0};
 						`MTLO:
 							sigs <= {15'b0_0_0_0_0_0_0_0_0_0_0_1_1_0_0};
-						
+
+						`DIV:
+							sigs <= {15'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0};
+						`DIVU:
+							sigs <= {15'b0_0_0_0_0_0_0_0_0_0_0_0_0_0_0};
 						// R_Type logic
 						`AND, `OR, `XOR, `NOR, `SLL, `SRL, `SRA,
 						`SLLV, `SRLV, `SRAV, `ADD, `ADDU, `SUB,
-						`SUBU, `SLT, `SLTU, `MULT, `MULTU, `DIV,
-						`DIVU:
+						`SUBU, `SLT, `SLTU, `MULT, `MULTU, :
 							sigs <= {15'b1_0_0_1_0_0_0_0_0_0_0_0_0_0_0};
 					endcase
 
