@@ -29,6 +29,8 @@ module datapath(
 	input wire  [7:0] alucontrolE,
 	input wire  [31:0] instr, mem_rdata,
 
+	input wire HiorLoW, DataMoveW, WriteHiLoW, // 硬综添加
+
 	output wire out_pcsrc,out_zero,out_flushE,
 	output wire [31:0] pc,out_pc_next_jump,
 	output wire [31:0] aluoutM,aluoutbefore,
@@ -51,7 +53,7 @@ wire [31:0] pc_plus4F,pc_plus4D,pc_plus4E,
 			SignImmD,SignImmE,imm_sl2,
 			alu_result,aluoutW,
 			writedataE,writedataM,
-			wa3,wd3,rd1E,rd2E,
+			wa3,resultW,rd1E,rd2E,
 			ReadDataW,pc_next,
 			pc_branchD,pc_branchM,
 			pc_next_jump, 
@@ -129,7 +131,7 @@ regfile u4(//regfile的读功能是相当于一个组合逻辑的
 	.ra1(instrD[25:21]),
 	.ra2(instrD[20:16]), //lw中，将ra2的数取出，
 	.wa3(writeregW),//input wire[4:0] ra1,ra2,wa3,
-	.wd3(wd3),// input wire[31:0] wd3,
+	.wd3(resultW),// input wire[31:0] wd3,
 	.rd1(rd1),
 	.rd2(rd2)// output wire[31:0] rd1,rd2
     );
@@ -470,14 +472,107 @@ adder u8(
     .y(pc_plus4F)
     );
 
+wire [31:0] resultW_tmp; 
 
 //mux2x1 for writeback to register
 mux2x1_32 mux_wd3(
 	.a(ReadDataW),// input wire [31:0] a,
 	.b(aluoutW),// input wire [31:0] b,
 	.s(memtoregW), //memtoreg
-	.y(wd3)// output wire [31:0] y 
+	.y(resultW_tmp)// output wire [31:0] y 
     );
+
+
+//Added in HardWare Synthesis Design 
+
+
+//----------------------------------------------------------
+//添加HiLo模块与对应通路，mux
+//根据HiorLoW信号来决定将aluoutW输入的信号是分配给hi还是分配给lo
+
+wire [31:0] hi, lo, hi_o, lo_o, hilo_out;
+
+
+hilo_distribute hilo_d(
+    .in(aluoutW), //input  wire [31:0] in
+	.s(HiorLoW),  //input  wire  s
+	.hi(hi), 	 //output wire [31:0] hi
+	.lo(lo)  	 //output wire [31:0] hi
+    );
+
+
+hilo_reg hilo(
+	.clk(~clka),
+	.rst(rst),
+	.we(WriteHiLoW),
+	.hi(hi),//input wire[31:0] hi
+	.lo(lo),
+	.hi_o(hi_o), //output reg[31:0] hi_o
+	.lo_o(lo_o)
+    );
+
+
+mux2x1_32 mux_hilo(
+	.a(hi_o),
+	.b(lo_o),
+	.s(HiorLoW),
+	.y(hilo_out)
+	);
+
+
+mux2x1_32 mux_datamove(
+	.a(hilo_out),
+	.b(resultW_tmp),
+	.s((DataMoveW & !WriteHiLoW)),
+	.y(resultW)
+	);
+//----------------------------------------------------------
+
+
+//----------------------------------------------------------
+//添加jr所需要的通路：读的地址是rs寄存器的地址
+// wire jrD;
+// // wire [31:0] pc_next_jump_tmp; 在line54增加了定义
+
+// mux2x1_32 mux_jr(
+// 	.a(rd1D),
+// 	.b(pc_next_jump_tmp),
+// 	.s(jrD),
+// 	.y(pc_next_jump)
+// 	);
+
+//----------------------------------------------------------
+
+
+//----------------------------------------------------------
+//添加jal所需要的，那边写入寄存器的地址应该是31，还有增加一个pc+8，复用aluoutM传下去
+// wire [4:0] writeregEtmp;这里在line42增加了定义
+// 在line49添加了 wire[31:0] alu_result_tmp
+// wire [31:0]  pc_plus8E;
+
+// mux2x1_5 mux_writeaddress_jal(
+// 	.a(5'b11111),  //表示31号寄存器
+// 	.b(writeregEtmp),
+// 	.s((jalE | balE | ( jalr & (rdE == 5'b0) ) )),
+// 	.y(writeregE)
+// 	);
+
+
+// adder adder_jal(
+// 	.a(pc_plus4E),//input wire[31:0] a,b
+// 	.b(32'b100),  //b这个地方接一个4
+// 	.y(pc_plus8E) 	   //output wire[31:0] y
+//     );
+
+
+// mux2x1_32 mux_pcplus8_jal(
+// 	.a(alu_result_tmp),
+// 	.b(pc_next_jump_tmp),
+// 	.s( (jalE | balE) ),
+// 	.y(alu_result)
+// 	);
+
+//----------------------------------------------------------
 
 
 endmodule

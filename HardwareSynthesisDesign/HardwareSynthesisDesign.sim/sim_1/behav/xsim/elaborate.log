@@ -4,13 +4,16 @@ Running: D:/vivado2019.2/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 283e
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'memtoregM' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:300]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:381]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:382]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:391]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:392]
-WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:47]
-WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'memtoregM' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:318]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'opdata1_i' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:344]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 32 for port 'opdata2_i' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:345]
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 64 for port 'result_o' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:348]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:410]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:411]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:420]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/datapath.v:421]
+WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/top.v:47]
+WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/top.v:58]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -43,10 +46,13 @@ Compiling module xil_defaultlib.mux3x1_forward
 Compiling module xil_defaultlib.mux2x1_32
 Compiling module xil_defaultlib.hazard_unit
 Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.div
 Compiling module xil_defaultlib.flopenrc(WIDTH=1)
 Compiling module xil_defaultlib.sl2
 Compiling module xil_defaultlib.mux2x1_5
 Compiling module xil_defaultlib.floprc
+Compiling module xil_defaultlib.hilo_distribute
+Compiling module xil_defaultlib.hilo_reg
 Compiling module xil_defaultlib.datapath
 Compiling module xil_defaultlib.mips
 Compiling module xil_defaultlib.top

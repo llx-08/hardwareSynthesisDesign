@@ -29,7 +29,9 @@ module controller(
 				alusrcE, regdstE, jumpD, 
 				memenM, 
 				branchD_out,
-	output wire [7:0] alucontrolE
+	output wire [7:0] alucontrolE,
+
+	output wire DataMoveW, WriteHiLoW, HiorLoW
     );
 
 wire memtoregD,memtoregE,memtoregM,
@@ -43,6 +45,10 @@ wire memtoregD,memtoregE,memtoregM,
 	 jr,
 	 bal,
 	 jalr;
+
+wire DataMoveD, WriteHiLoD, HiorLoD;
+wire DataMoveE, WriteHiLoE, HiorLoE;
+wire DataMoveM, WriteHiLoM, HiorLoM;
 
 wire [7:0] alucontrolD;
 wire [1:0] aluop;
@@ -67,7 +73,10 @@ maindec u1(
 	.jal(jal),
 	.jr(jr),
 	.bal(bal),
-	.jalr(jalr)
+	.jalr(jalr),
+	.DataMove(DataMoveD), 
+	.WriteHiLo(WriteHiLoD), 
+	.HiorLo(HiorLoD)
 	);
 
 aludec u2(
@@ -180,5 +189,83 @@ floprc #(1) c13(
 	.clear(1'b0),
 	.d(memtoregM),// input wire [WIDTH - 1:0] d,
 	.q(memtoregW)// output reg [WIDTH - 1:0] q
+    );
+
+
+// Hard Synthesis Design
+
+// DataMove
+floprc #(1) DataMove_D2E(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(DataMoveD),// input wire [WIDTH - 1:0] d,
+	.q(DataMoveE)// output reg [WIDTH - 1:0] q
+    );
+
+floprc #(1) DataMove_E2M(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(DataMoveE),// input wire [WIDTH - 1:0] d,
+	.q(DataMoveM)// output reg [WIDTH - 1:0] q
+    );
+
+floprc #(1) DataMove_M2W(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(DataMoveM),// input wire [WIDTH - 1:0] d,
+	.q(DataMoveW)// output reg [WIDTH - 1:0] q
+    );
+
+// WriteHiLo
+floprc #(1) WriteHiLo_D2E(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(WriteHiLoD),// input wire [WIDTH - 1:0] d,
+	.q(WriteHiLoE)// output reg [WIDTH - 1:0] q
+    );
+
+floprc #(1) WriteHiLo_E2M(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(WriteHiLoE),// input wire [WIDTH - 1:0] d,
+	.q(WriteHiLoM)// output reg [WIDTH - 1:0] q
+    );
+
+floprc #(1) WriteHiLo_M2W(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(WriteHiLoM),// input wire [WIDTH - 1:0] d,
+	.q(WriteHiLoW)// output reg [WIDTH - 1:0] q
+    );
+
+// HiorLo
+floprc #(1) HiorLo_D2E(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(HiorLoD),// input wire [WIDTH - 1:0] d,
+	.q(HiorLoE)// output reg [WIDTH - 1:0] q
+    );
+
+floprc #(1) HiorLo_E2M(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(HiorLoE),// input wire [WIDTH - 1:0] d,
+	.q(HiorLoM)// output reg [WIDTH - 1:0] q
+    );
+
+floprc #(1) HiorLo_M2W(
+	.clk(clk),
+	.rst(rst),
+	.clear(1'b0),
+	.d(HiorLoM),// input wire [WIDTH - 1:0] d,
+	.q(HiorLoW)// output reg [WIDTH - 1:0] q
     );
 endmodule

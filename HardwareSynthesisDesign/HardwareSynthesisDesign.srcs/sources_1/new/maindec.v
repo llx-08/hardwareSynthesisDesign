@@ -25,8 +25,8 @@ module maindec(
 	input wire [5:0] func,
 	output wire memtoreg, memwrite,regwrite, 
 				alusrc, regdst, jump, 
-				memen, branch,jal,jr,bal,jalr
-
+				memen, branch,jal,jr,bal,jalr,
+    output wire DataMove, WriteHiLo, HiorLo
 	);
 	reg [14:0] sigs;
 

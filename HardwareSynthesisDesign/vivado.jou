@@ -2,21 +2,114 @@
 # Vivado v2019.2 (64-bit)
 # SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
 # IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
-# Start of session at: Thu Dec 31 18:02:26 2020
-# Process ID: 4804
-# Current directory: D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2072 D:\thirdyear\hardwareSysthesis\HardwareSynthesisDesign\HardwareSynthesisDesign\HardwareSynthesisDesign.xpr
-# Log file: D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/vivado.log
-# Journal file: D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign\vivado.jou
+# Start of session at: Fri Jan  1 11:53:32 2021
+# Process ID: 8340
+# Current directory: D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13964 D:\thirdyear\hardwareSysthesis\gitVersion\HardwareSynthesisDesign\HardwareSynthesisDesign.xpr
+# Log file: D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/vivado.log
+# Journal file: D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project D:/thirdyear/hardwareSysthesis/HardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.xpr
+open_project D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/sign_extend.v] -no_script -reset -force -quiet
+remove_files  D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/rtls/sign_extend.v
+update_compile_order -fileset sources_1
+set_property -dict [list CONFIG.Coe_File {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/test_independent_coe/DataMoveInstTest/obj/inst_ram.coe}] [get_ips inst_ram]
+generate_target all [get_files  D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci]
+export_ip_user_files -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci] -directory D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/sim_scripts -ip_user_files_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files -ipstatic_source_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/modelsim} {questa=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/questa} {riviera=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/riviera} {activehdl=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+set_property -dict [list CONFIG.Coe_File {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/test_independent_coe/DataMoveInstTest/obj/data_ram.coe}] [get_ips data_ram]
+generate_target all [get_files  D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/data_ram/data_ram.xci]
+export_ip_user_files -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/data_ram/data_ram.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/data_ram/data_ram.xci] -directory D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/sim_scripts -ip_user_files_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files -ipstatic_source_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/modelsim} {questa=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/questa} {riviera=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/riviera} {activehdl=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+update_compile_order -fileset sources_1
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+add_files -norecurse D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/hilo_reg.v
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/resultW}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/hilo_out}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/hi}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/lo}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/HiorLoW}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/WriteHiLoW}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/WriteHiLoW}} 
+save_wave_config {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg}
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/WriteHiLoW}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/WriteHiLoW}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/WriteHiLoW}} 
+save_wave_config {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+save_wave_config {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+save_wave_config {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/DataMoveW}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/resultW_tmp}} 
+save_wave_config {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+save_wave_config {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
 update_compile_order -fileset sources_1
 update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-open_project D:/thirdyear/hardwareSysthesis/lyf/MIPS32/pipelineX.xpr
-update_compile_order -fileset sources_1
-current_project HardwareSynthesisDesign
-update_compile_order -fileset sources_1
-current_project pipelineX
-close_project
+save_wave_config {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+set_property -dict [list CONFIG.Coe_File {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/test_independent_coe/j_BTest/Test1/obj/inst_ram.coe}] [get_ips inst_ram]
+generate_target all [get_files  D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci]
+export_ip_user_files -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/inst_ram/inst_ram.xci] -directory D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/sim_scripts -ip_user_files_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files -ipstatic_source_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/modelsim} {questa=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/questa} {riviera=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/riviera} {activehdl=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+set_property -dict [list CONFIG.Coe_File {D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/test_independent_coe/j_BTest/Test1/obj/data_ram.coe}] [get_ips data_ram]
+generate_target all [get_files  D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/data_ram/data_ram.xci]
+export_ip_user_files -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/data_ram/data_ram.xci] -no_script -sync -force -quiet
+export_simulation -of_objects [get_files D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/ip/data_ram/data_ram.xci] -directory D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/sim_scripts -ip_user_files_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files -ipstatic_source_dir D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files/ipstatic -lib_map_path [list {modelsim=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/modelsim} {questa=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/questa} {riviera=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/riviera} {activehdl=D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/HardwareSynthesisDesign.cache/compile_simlib/activehdl}] -use_ip_compiled_libs -force -quiet
+launch_simulation
+launch_simulation
+open_wave_config D:/thirdyear/hardwareSysthesis/gitVersion/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl

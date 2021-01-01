@@ -37,6 +37,8 @@ module mips(
 	wire[7:0] alucontrol;
 	wire [31:0] instrD_out;
 
+	wire DataMoveW, WriteHiLoW, HiorLoW;
+
 	assign out_branch = branch;
 	assign out_regwrite = regwriteW;
 	assign out_jump = jump;
@@ -61,7 +63,10 @@ module mips(
 		.jumpD(jump),
 		.memenM(data_ram_ena),
 		.alucontrolE(alucontrol),		
-		.branchD_out(branchD)
+		.branchD_out(branchD),
+
+		.DataMoveW(DataMoveW), .WriteHiLoW(WriteHiLoW), .HiorLoW(HiorLoW)
+
 		);
 
 	datapath dp(
@@ -72,6 +77,9 @@ module mips(
 		.aluoutbefore(aluoutbefore),
 		.out_pc_next_jump(out_pc_next_jump),
 		.instr(instr),//input
+
+		.DataMoveW(DataMoveW), .WriteHiLoW(WriteHiLoW), .HiorLoW(HiorLoW),
+
 		.instrD_out(instrD_out),//output to controller
 		.mem_rdata(mem_rdata),
 		.memtoregW(memtoreg),

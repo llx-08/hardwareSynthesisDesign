@@ -7,9 +7,12 @@ verilog xil_defaultlib  --include "../../../../rtls" \
 "../../../../HardwareSynthesisDesign.srcs/sources_1/new/aludec_57inst.v" \
 "../../../../rtls/controller.v" \
 "../../../../rtls/datapath.v" \
+"../../../../HardwareSynthesisDesign.srcs/sources_1/new/div.v" \
 "../../../../rtls/flopenrc.v" \
 "../../../../rtls/floprc.v" \
 "../../../../rtls/hazard_unit.v" \
+"../../../../HardwareSynthesisDesign.srcs/sources_1/new/hilo_distribute.v" \
+"../../../../hilo_reg.v" \
 "../../../../HardwareSynthesisDesign.srcs/sources_1/new/maindec.v" \
 "../../../../rtls/mips.v" \
 "../../../../rtls/mux2x1_32.v" \
