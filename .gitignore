@@ -1,6 +1,3 @@
-HardwareSynthesisDesign/HardwareSynthesisDesign.cache
-HardwareSynthesisDesign/HardwareSynthesisDesign.hw
-HardwareSynthesisDesign/HardwareSynthesisDesign.ip_user_files
-HardwareSynthesisDesign/HardwareSynthesisDesign.runs
-.jou
-.log
+HardwareSynthesisDesign/
+!HardwareSynthesisDesign/rtls/
+!HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1
