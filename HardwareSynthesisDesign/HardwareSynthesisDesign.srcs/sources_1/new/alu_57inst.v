@@ -80,17 +80,17 @@ module alu(
 			// 			  add_resTmp <= a + b;
 			// 			  y <= add_resTmp[31:0];
 			// 			  overflow <= (add_resTmp[31] == add_resTmp[32]) ? 1'b0 : 1'b1;
-			// 			  // 31,32位不相等则出现溢?
-			// 		end
+						  // 31,32位不相等则出现溢?
+					// end
 							
 			`EXE_ADDU_OP, `EXE_ADDIU_OP: y <= a + b;
 
 			// `EXE_SUB_OP : begin
-			// 			  temp_a <= (a[31] == 1'b1) ? {a[31], ~a[30:0]+1} : a;
-			// 			  temp_b <= (b[31] == 1'b1) ? {b[31], ~b[30:0]+1} : b;
-			// 			  sub_resTmp <= temp_a - temp_b;
-			// 			  y <= sub_resTmp[31:0];
-			// 			  overflow <= (sub_resTmp[31] == sub_resTmp[32]) ? 1'b0 : 1'b1;
+						//   temp_a <= (a[31] == 1'b1) ? {a[31], ~a[30:0]+1} : a;
+						//   temp_b <= (b[31] == 1'b1) ? {b[31], ~b[30:0]+1} : b;
+						//   sub_resTmp <= temp_a - temp_b;
+						//   y <= sub_resTmp[31:0];
+						//   overflow <= (sub_resTmp[31] == sub_resTmp[32]) ? 1'b0 : 1'b1;
 			// end
 						  
 			`EXE_SUBU_OP: y <= a - b;

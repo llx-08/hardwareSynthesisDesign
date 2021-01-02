@@ -62,6 +62,7 @@ assign branchD_out = branchD;
 maindec u1(
 	.op(instr[31:26]),
 	.func(instr[5:0]),
+	.rt(instr[20:16]),
 	// .aluop(aluop),
 	.memtoreg(memtoregD),
 	.memwrite(memwriteD),

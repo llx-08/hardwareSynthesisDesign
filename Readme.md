@@ -77,9 +77,13 @@ _start:
 
 
 
-2，对于jal型指令，本来设想的是jal信号为1，其他无关的信号均为0，但是实际上，因为jal指令本来就是jump and link的意思，它所需要的下一个pc的地址也是指令中跳转的地址，如下图，起关键作用的信号为jumpD，在这里，jumpD的信号也应该是1，才能满足指令的要求
+2，本来的设想是对于jal型指令，只需要jal信号为1，其他无关的信号均为0，对于jalr指令也一样，只需要jalr信号为1，其他无关的信号均为0，但是实际上，因为jal指令本来就是jump and link的意思，它所需要的下一个pc的地址也是指令中跳转的地址，如下图，起关键作用的信号为jumpD，在这里，jumpD的信号也应该是1，才能满足指令的要求
 
-这里记得新截一张图，下面的jumpE应该改名为jumpD！！！
+这里记得新截一张图，下面的jumpE应该改名为jumpD！！！，还有下面的选择信号jrD应该再或上其他的东西
+
+这个地方的pc值取错了，变成了一个奇怪的值，经过追根溯源之后，发现是多路选择器的选择信号输入少考虑了一种情况。应该或上jarlD信号。
+
+<img src="image_for_report/second_wrong1_in_jTest.png" alt="img1" style="zoom: 100%;" />
 
 
 
@@ -87,5 +91,20 @@ _start:
 
 
 
+改正之后pc跳转的值变成了正确的0000002c。
+
+<img src="image_for_report/solved_second_wrong1_in_jTest.png" alt="img1" style="zoom: 100%;" />
+
+最后可以看出，寄存器堆中的$1到最后存储的值为10，而寄存器\$2与\$3中的值都应该是00000048，证明该项独立测试通过。
 
 
+
+<img src="image_for_report/solved_second_wrong_in_jTest.png" alt="img1" style="zoom: 100%;" />
+
+
+
+在对于branch指令的测试中，一开始小组成员在将balE信号打印出来之后发现它一直没有变化，于是逐层检查信号来源，发现原因是没有在maindecoder中接入rt信号，导致对于branch and link一类的指令的判断出现了错误。
+
+<img src="image_for_report/solved_branchTest.png" alt="img1" style="zoom: 100%;" />
+
+可以看到在上图中，如果顺序执行的话，寄存器\$1的值到倒数第二个周期应该是0x14c，到最后，\$1 的值应该是0x14，因为在测试文件中有着比较复杂的连环跳转，所以检测到最后是这样的输出结果之后，我们可以肯定这些branch类型的指令都是成功执行了的。

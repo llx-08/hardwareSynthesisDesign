@@ -11,18 +11,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="208920fs"></ZoomStartTime>
-      <ZoomEndTime time="373321fs"></ZoomEndTime>
-      <Cursor1Time time="336320fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="1000001fs"></ZoomEndTime>
+      <Cursor1Time time="950000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="151"></NameColumnWidth>
+      <NameColumnWidth column_width="127"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="21" />
+   <WVObjectSize size="23" />
    <wave_markers>
-      <marker time="381627" label="" />
       <marker time="196710" label="" />
+      <marker time="381627" label="" />
    </wave_markers>
    <wvobject fp_name="/testbench/writedata" type="array">
       <obj_property name="ElementShortName">writedata[31:0]</obj_property>
@@ -71,18 +71,6 @@
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/jrD" type="logic">
-      <obj_property name="ElementShortName">jrD</obj_property>
-      <obj_property name="ObjectShortName">jrD</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/c/jrD" type="logic">
-      <obj_property name="ElementShortName">jrD</obj_property>
-      <obj_property name="ObjectShortName">jrD</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/c/u1/jr" type="logic">
-      <obj_property name="ElementShortName">jr</obj_property>
-      <obj_property name="ObjectShortName">jr</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/instrD" type="array">
       <obj_property name="ElementShortName">instrD[31:0]</obj_property>
       <obj_property name="ObjectShortName">instrD[31:0]</obj_property>
@@ -112,5 +100,25 @@
    <wvobject fp_name="/testbench/test/u/dp/instrD" type="array">
       <obj_property name="ElementShortName">instrD[31:0]</obj_property>
       <obj_property name="ObjectShortName">instrD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/out_pcsrc" type="logic">
+      <obj_property name="ElementShortName">out_pcsrc</obj_property>
+      <obj_property name="ObjectShortName">out_pcsrc</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/writeregE" type="array">
+      <obj_property name="ElementShortName">writeregE[4:0]</obj_property>
+      <obj_property name="ObjectShortName">writeregE[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/balE" type="logic">
+      <obj_property name="ElementShortName">balE</obj_property>
+      <obj_property name="ObjectShortName">balE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/u1/bal" type="logic">
+      <obj_property name="ElementShortName">bal</obj_property>
+      <obj_property name="ObjectShortName">bal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/u1/rt" type="array">
+      <obj_property name="ElementShortName">rt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rt[4:0]</obj_property>
    </wvobject>
 </wave_config>

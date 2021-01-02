@@ -23,6 +23,8 @@
 module maindec(
 	input wire [5:0] op,
 	input wire [5:0] func,
+	input wire [4:0] rt,
+
 	output wire memtoreg, memwrite,regwrite, 
 				alusrc, regdst, jump, 
 				memen, branch,jal,jr,bal,jalr,
@@ -82,12 +84,26 @@ module maindec(
 				sigs   <= {15'b0_1_0_1_0_0_0_0_0_0_0_0_0_0_0};
 
 			// 分支跳转指令
-			`J: sigs   <= {15'b0_0_0_0_0_0_0_1_0_0_0_0_0_0_0};
+			`J:   sigs <= {15'b0_0_0_0_0_0_0_1_0_0_0_0_0_0_0};
 			`JAL: sigs <= {15'b0_0_0_1_0_0_0_1_1_0_0_0_0_0_0};
-			`BEQ, `BGTZ, `BLEZ, `BNE, `BLTZ, `BGEZ:
-				sigs   <= {15'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0};
-			`BLTZAL, `BGEZAL:
-				sigs   <= {15'b0_0_0_1_0_0_1_0_0_0_1_0_0_0_0};
+			`BEQ,`BNE,`BGTZ,`BLEZ:
+				  sigs <= {15'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0};
+
+			`EXE_REGIMM_INST: begin
+				$display("Simulation Failed");
+				case(rt)
+				   `BLTZ, `BGEZ:
+						sigs   <= {15'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0};
+					`BLTZAL, `BGEZAL:
+						begin
+							sigs   <= {15'b0_0_0_1_0_0_1_0_0_0_1_0_0_0_0};
+							
+						end
+						
+				endcase
+			end
+			
+		//regdst, alusrc, memtoreg, regwrite,memen, memwrite, branch, jump,jal, jr, bal,DataMove, WriteHiLo, HiorLo, jalr
 
 			// 访存指令
 			`LW: sigs  <= {15'b0_1_1_1_1_0_0_0_0_0_0_0_0_0_0};
