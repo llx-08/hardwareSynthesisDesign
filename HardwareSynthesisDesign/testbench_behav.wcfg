@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="229820fs"></ZoomStartTime>
-      <ZoomEndTime time="585161fs"></ZoomEndTime>
-      <Cursor1Time time="391315fs"></Cursor1Time>
+      <ZoomStartTime time="282127fs"></ZoomStartTime>
+      <ZoomEndTime time="443128fs"></ZoomEndTime>
+      <Cursor1Time time="347527fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="156"></NameColumnWidth>
       <ValueColumnWidth column_width="70"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="30" />
+   <WVObjectSize size="34" />
    <wave_markers>
       <marker time="200000" label="" />
       <marker time="369734" label="" />
@@ -63,10 +63,6 @@
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
@@ -145,6 +141,10 @@
       <obj_property name="ElementShortName">pcsrcD</obj_property>
       <obj_property name="ObjectShortName">pcsrcD</obj_property>
    </wvobject>
+   <wvobject fp_name="/testbench/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/stallF" type="logic">
       <obj_property name="ElementShortName">stallF</obj_property>
       <obj_property name="ObjectShortName">stallF</obj_property>
@@ -156,5 +156,21 @@
    <wvobject fp_name="/testbench/test/u/dp/h1/branch_stall" type="logic">
       <obj_property name="ElementShortName">branch_stall</obj_property>
       <obj_property name="ObjectShortName">branch_stall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/memtoregE" type="logic">
+      <obj_property name="ElementShortName">memtoregE</obj_property>
+      <obj_property name="ObjectShortName">memtoregE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/RsD" type="array">
+      <obj_property name="ElementShortName">RsD[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RsD[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/RtD" type="array">
+      <obj_property name="ElementShortName">RtD[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RtD[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/RtE" type="array">
+      <obj_property name="ElementShortName">RtE[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RtE[4:0]</obj_property>
    </wvobject>
 </wave_config>

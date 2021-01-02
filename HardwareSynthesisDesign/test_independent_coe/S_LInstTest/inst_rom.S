@@ -4,16 +4,16 @@
    .set nomacro
    .global _start
 _start:
-   ori  $3,$0,0xeeff
-   sb   $3,0x3($0)       # [0x3] = 0xff   8
-   srl  $3,$3,8
-   sb   $3,0x2($0)       # [0x2] = 0xee   c
-   ori  $3,$0,0xccdd
-   sb   $3,0x1($0)       # [0x1] = 0xdd   14
-   srl  $3,$3,8
-   sb   $3,0x0($0)       # [0x0] = 0xcc   18
-   lb   $1,0x3($0)       ## $1 = 0xffffffff  1c
-   lbu  $1,0x2($0)       ## $1 = 0x000000ee
+   ori  $3,$0,0xeeff                                        #00
+   sb   $3,0x3($0)       # [0x3] = 0xff   8                 #04
+   srl  $3,$3,8                                             #08
+   sb   $3,0x2($0)       # [0x2] = 0xee   c                 #0c
+   ori  $3,$0,0xccdd                                        #10
+   sb   $3,0x1($0)       # [0x1] = 0xdd   14                #14
+   srl  $3,$3,8                                             #18
+   sb   $3,0x0($0)       # [0x0] = 0xcc   18                #1c
+   lb   $1,0x3($0)       ## $1 = 0xffffffff  1c             #20
+   lbu  $1,0x2($0)       ## $1 = 0x000000ee                 #24
    nop
 
    ori  $3,$0,0xaabb

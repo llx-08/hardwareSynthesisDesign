@@ -47,9 +47,9 @@ module hazard_unit(
 						((RtE != 5'b0) && (RtE == writeregW) && regwriteW) ? 2'b01 : 2'b00;
 										//寄存器取的第二个数的地址等于上一条的write2reg的地址
 	wire lwstall,branch_stall;
-	assign lwstall = ((RsD == RtE) ||    //这一条指令的上一条是lw指令并且这一条的第一个源寄存器等于上一条lw指令的目的寄存器
+	assign lwstall = ((RsD == RtE) ||   //这一条指令的上一条是lw指令并且这一条的第一个源寄存器等于上一条lw指令的目的寄存器
 					  (RtD == RtE))     //这一条指令的上一条是lw指令并且这一条的第二个源寄存器等于上一条lw指令的目的寄存器
-						&& memtoregE;
+						&& memtoregE;   //并且这一条指令是需要从memory中写回register的指令，当前处于E阶段
 
 	assign branch_stall = 1'b0;/*(pcsrcD && regwriteE && ((writeregE == RsD) || (writeregE == RtD)) ) ||
 						  (pcsrcD && memtoregM && ((writeregM == RsD) || (writeregM == RtD)) );*/
