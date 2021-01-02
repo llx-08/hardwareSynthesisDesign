@@ -196,7 +196,7 @@ mux4x1_forwardD d_forwardB(
 flopenrc #(32) r3(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(rd1D),// input wire [WIDTH - 1:0] d,
 	.q(rd1E)// output reg [WIDTH - 1:0] q
@@ -206,7 +206,7 @@ flopenrc #(32) r3(
 flopenrc #(32) r4(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(rd2D),// input wire [WIDTH - 1:0] d,
 	.q(rd2E)// output reg [WIDTH - 1:0] q
@@ -216,7 +216,7 @@ flopenrc #(32) r4(
 flopenrc #(5) r5(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(instrD[15:11]),// input wire [WIDTH - 1:0] d,
 	.q(RdE)// output reg [WIDTH - 1:0] q
@@ -226,7 +226,7 @@ flopenrc #(5) r5(
 flopenrc #(5) r6(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(instrD[20:16]),// input wire [WIDTH - 1:0] d,
 	.q(RtE)// output reg [WIDTH - 1:0] q
@@ -240,7 +240,7 @@ assign saD = instrD[10:6];
 flopenrc #(5) saDtoE(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(saD),// input wire [WIDTH - 1:0] d,
 	.q(saE)// output reg [WIDTH - 1:0] q
@@ -252,7 +252,7 @@ flopenrc #(5) saDtoE(
 flopenrc #(5) r6_1(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(instrD[25:21]),// input wire [WIDTH - 1:0] d,
 	.q(RsE)// output reg [WIDTH - 1:0] q
@@ -269,7 +269,7 @@ sign_extend u5(
 flopenrc #(32) r7(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(SignImmD),// input wire [WIDTH - 1:0] d,
 	.q(SignImmE)// output reg [WIDTH - 1:0] q
@@ -279,7 +279,7 @@ flopenrc #(32) r7(
 flopenrc #(32) r8(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallE),
 	.clear(flushE),
 	.d(pc_plus4D),// input wire [WIDTH - 1:0] d,
 	.q(pc_plus4E)// output reg [WIDTH - 1:0] q
@@ -320,7 +320,7 @@ mux2x1_32 alusrcb( //a是1，b是0
 	.y(SrcBE)// output wire [31:0] y 
     );
 
-hazard_unit h1(
+hazard_57inst h1(
 	.RsD(RsD),
 	.RtD(RtD),
 	.RsE(RsE),
@@ -337,6 +337,10 @@ hazard_unit h1(
 	.regwriteW(regwriteW),// output wire regwriteM,regwriteW,
     .stallF(stallF),
     .stallD(stallD),
+	.stallE(stallE),
+	.stallM(stallM),
+	.stallW(stallW),
+	.stallPC(stallPC),
     .flushE(flushE),
     .forwardAD(forwardAD),
     .forwardBD(forwardBD),
@@ -369,7 +373,7 @@ div divider(
 flopenrc #(32) instE2M(
 	.clk(clka),
 	.rst(rst),
-	.en(~stallD),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(instrE),// input wire [WIDTH - 1:0] d,
 	.q(instrM)// output reg [WIDTH - 1:0] q
@@ -379,7 +383,7 @@ flopenrc #(32) instE2M(
 flopenrc #(1) r9(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(zero),// input wire [WIDTH - 1:0] d,
 	.q(zeroM)// output reg [WIDTH - 1:0] q
@@ -389,7 +393,7 @@ flopenrc #(1) r9(
 flopenrc #(32) r10(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(alu_result),// input wire [WIDTH - 1:0] d,
 	.q(aluoutM)// output reg [WIDTH - 1:0] q
@@ -399,7 +403,7 @@ flopenrc #(32) r10(
 flopenrc #(32) r11(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(writedataE),// input wire [WIDTH - 1:0] d,
 	.q(writedataM)// output reg [WIDTH - 1:0] q
@@ -431,7 +435,7 @@ mux2x1_5 mux_wa3(
 flopenrc #(5) r13(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(writeregE),// input wire [WIDTH - 1:0] d,
 	.q(writeregM)// output reg [WIDTH - 1:0] q
@@ -441,7 +445,7 @@ flopenrc #(5) r13(
 flopenrc #(32) r14(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallW),
 	.clear(1'b0),
 	.d(writeregM),// input wire [WIDTH - 1:0] d,
 	.q(writeregW)// output reg [WIDTH - 1:0] q
@@ -474,7 +478,7 @@ saveData_Mask sbs( // 硬综添加，生成写使能掩码
 flopenrc #(32) r15(
 	.clk(clka),
 	.rst(rst),
-	.en(1'b1),
+	.en(~stallW),
 	.clear(1'b0),
 	.d(mem_rdata_afterByteSelect),// input wire [WIDTH - 1:0] d,
 	.q(ReadDataW)// output reg [WIDTH - 1:0] q
