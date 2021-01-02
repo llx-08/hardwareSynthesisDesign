@@ -28,7 +28,8 @@ module maindec(
 	output wire memtoreg, memwrite,regwrite, 
 				alusrc, regdst, jump, 
 				memen, branch,jal,jr,bal,jalr,
-    output wire DataMove, WriteHiLo, HiorLo
+    output wire DataMove, WriteHiLo, HiorLo,
+	output wire [3:0] write_mask
 	);
 	reg [14:0] sigs;
 

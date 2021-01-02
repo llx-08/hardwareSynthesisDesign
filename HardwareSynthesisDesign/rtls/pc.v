@@ -21,7 +21,7 @@
 
 
 module pc(
-	input wire clk, rst,en,
+	input wire clk, rst, en,
 	input wire [31:0] din,
 	output reg [31:0] q
     );

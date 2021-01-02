@@ -31,16 +31,17 @@ module loadData_byteSelect( // 该模块用于选择load data 中取整个字，
     );
 
 	always @(*) begin 
-		$display("reached lb");
+		
 		case (op)
 
 			`EXE_LW : begin
+
 				address_error <= (addr[1:0] == 2'b00) ? 1'b0 : 1'b1;
 				final_data <= read_data;
 			end
 
 			`EXE_LB: begin
-
+				$display("reached lb");
 				case (addr[1:0])
 					2'b00: final_data <= {{24{read_data[31]}}, read_data[31:24]};
 					2'b01: final_data <= {{24{read_data[23]}}, read_data[23:16]};

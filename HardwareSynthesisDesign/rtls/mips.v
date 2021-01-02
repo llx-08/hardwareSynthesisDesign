@@ -23,14 +23,20 @@
 module mips(
 	input wire clka,rst,
 	// input wire [3:0] 
-	output wire out_regwrite,//测试用
-	input wire[31:0] instr,mem_rdata,
-	input wire data_ram_wea,
+	
+	input wire [31:0] instr,mem_rdata,
+
+	//测试访存指令的时候发现这个端口有错，应为output，但是写成了input
+	output wire [3:0]  data_ram_wea, //硬综更改，这个现在没啥用
+
+	output wire out_regwrite,
 	output wire inst_ram_ena, data_ram_ena,
 	output wire[31:0] pc,alu_result,aluoutbefore,
 	output wire[31:0] out_pc_next_jump,
 	output wire[31:0] mem_wdata,SrcAEout,SrcBEout,
-	output wire out_pcsrc,out_zero,out_branch,out_jump
+	output wire out_pcsrc,out_zero,out_branch,out_jump,
+
+	output wire [3:0] write_mask//写掩码
     );
 
 	wire flushE,branchD,memtoreg,memtoregE_out,alusrc,regdstE,regwriteW,regwriteE,regwriteM_out, jumpD ,zero,memen,branch,memwrite;
@@ -101,6 +107,8 @@ module mips(
 		.out_pcsrc(out_pcsrc),
 		.out_zero(out_zero),
 		.SrcAEout(SrcAEout),
-		.SrcBEout(SrcBEout)
+		.SrcBEout(SrcBEout),
+
+		.write_mask(write_mask)// output wire [3:0] write_mask
 		);
 endmodule

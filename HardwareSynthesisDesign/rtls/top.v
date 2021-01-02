@@ -34,6 +34,7 @@ module top(
 				alu_result,aluoutbefore;
 	wire inst_ram_ena, data_ram_ena;
 	wire data_ram_wea;
+	wire write_mask;
 	// wire [31:0] pc, instr;
 
 	assign pc_out = pc;
@@ -58,7 +59,7 @@ module top(
 	data_ram dram (
   		.clka(~clka),    // input wire clka
   		.ena(data_ram_ena),      // input wire ena
-  		.wea({4{data_ram_wea}}),      // input wire [3 : 0] wea
+  		.wea(write_mask),      // input wire [3 : 0] wea
   		// wea为1时为写入，wea为0时读取
   		//写的时候是4'b1 因为选中了按字节读写
   		// .addra(alu_result[9:0]),  // input wire [9 : 0] addra
@@ -86,6 +87,8 @@ module top(
 		.out_branch(out_branch),
 		.out_jump(out_jump),
 		.SrcAEout(SrcAEout),
-		.SrcBEout(SrcBEout)
+		.SrcBEout(SrcBEout),
+
+		.write_mask(write_mask)
 		);
 endmodule

@@ -23,12 +23,14 @@
 module controller(
 	input wire clk,rst,flushE,
 	input wire [31:0] instr,
-	output wire memtoregW, memwriteM,
+	output wire memtoregW, 
 				regwriteM_out,memtoregE_out,
 				regwriteW, regwriteE,
 				alusrcE, regdstE, jumpD, 
 				memenM, 
 				branchD_out,
+		
+	output wire [3:0] memwriteM,
 	output wire [7:0] alucontrolE,
 
 	output wire jrD, jalE, balE, jalrD, jalrE,
@@ -36,13 +38,12 @@ module controller(
     );
 
 wire memtoregD,memtoregE,memtoregM,
-	 memwriteD,memwriteE,
 	 regwriteD, regwriteM,
 	 alusrcD,
 	 regdstD, 
 	 memenD,memenE,
 	 branchD,branchE;
-
+wire memwrite;// 没什么用，防止报错
 
 wire DataMoveD, WriteHiLoD, HiorLoD;
 wire DataMoveE, WriteHiLoE, HiorLoE;
@@ -65,7 +66,7 @@ maindec u1(
 	.rt(instr[20:16]),
 	// .aluop(aluop),
 	.memtoreg(memtoregD),
-	.memwrite(memwriteD),
+	.memwrite(memwrite),
 	.regwrite(regwriteD), 
 	.alusrc(alusrcD),
 	.regdst(regdstD),

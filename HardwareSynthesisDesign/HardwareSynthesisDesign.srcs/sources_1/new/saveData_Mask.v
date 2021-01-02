@@ -30,18 +30,18 @@ module saveData_Mask(
 
     always @(*) begin
         case(op)
-        `EXE_SW_OP: begin
+        `EXE_SW: begin
                     address_error <= (addr[1:0] == 2'b00) ? 1'b0 : 1'b1;
                     write_mask    <= 4'b1111;
                 end
                     
 
-        `EXE_SH_OP: begin
+        `EXE_SH: begin
                     address_error <= (addr[0] == 1'b0) ? 1'b0 : 1'b1;
                     write_mask    <= (addr[1] == 1'b0) ? 4'b0011 : 4'b1100;
                 end 
 
-        `EXE_SB_OP:
+        `EXE_SB:
                     write_mask <= (addr[1:0] == 2'b00) ? 4'b0001 : 
                                   (addr[1:0] == 2'b01) ? 4'b0010 :
                                   (addr[1:0] == 2'b10) ? 4'b0100 : 4'b1000;

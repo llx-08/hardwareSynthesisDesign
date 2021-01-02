@@ -36,7 +36,9 @@ module datapath(
 	output wire [31:0] aluoutM,aluoutbefore,
 	output wire [31:0] instrD_out,
 	output wire [31:0] mem_wdata,
-	output wire [31:0] SrcAEout,SrcBEout
+	output wire [31:0] SrcAEout,SrcBEout,
+
+	output wire [3:0] write_mask
     );
 wire pcsrcD,zero,zeroM;
 wire stallF,stallD,flushE;
@@ -451,13 +453,21 @@ flopenrc #(32) r14(
 wire [31:0] mem_rdata_afterByteSelect;
 wire address_error_ldData;
 
-loadData_byteSelect lbs(
+loadData_byteSelect lbs(// 硬综添加
 	.op(instrM[31:26]),
 	.read_data(mem_rdata),
 	.addr(aluoutM),
 	.final_data(mem_rdata_afterByteSelect),
 	.address_error(address_error_ldData)
 	);
+
+
+saveData_Mask sbs( // 硬综添加，生成写使能掩码
+    .op(instr[31:26]),// input  wire [5:0]  op,
+	.addr(aluoutM),// input  wire [31:0] addr, 
+    .write_mask(write_mask),// output reg [3:0]  write_mask,
+	.address_error(address_error)// output reg address_error// 是否产生地址错误（未对齐
+);
 
 
 //Memory to Writeback

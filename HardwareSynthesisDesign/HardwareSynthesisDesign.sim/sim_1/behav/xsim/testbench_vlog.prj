@@ -23,6 +23,7 @@ verilog xil_defaultlib  --include "../../../../rtls" \
 "../../../../rtls/mux4x1_forwardD.v" \
 "../../../../rtls/pc.v" \
 "../../../../rtls/regfile.v" \
+"../../../../HardwareSynthesisDesign.srcs/sources_1/new/saveData_Mask.v" \
 "../../../../HardwareSynthesisDesign.srcs/sources_1/new/sign_extend_57inst.v" \
 "../../../../rtls/sl2.v" \
 "../../../../rtls/top.v" \

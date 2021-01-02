@@ -11,18 +11,19 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="299390fs"></ZoomStartTime>
-      <ZoomEndTime time="456391fs"></ZoomEndTime>
-      <Cursor1Time time="374590fs"></Cursor1Time>
+      <ZoomStartTime time="229820fs"></ZoomStartTime>
+      <ZoomEndTime time="585161fs"></ZoomEndTime>
+      <Cursor1Time time="391315fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="156"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <ValueColumnWidth column_width="70"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="30" />
    <wave_markers>
       <marker time="200000" label="" />
       <marker time="369734" label="" />
+      <marker time="384327" label="" />
    </wave_markers>
    <wvobject fp_name="/testbench/writedata" type="array">
       <obj_property name="ElementShortName">writedata[31:0]</obj_property>
@@ -61,6 +62,7 @@
    <wvobject fp_name="/testbench/test/u/dp/u4/rf" type="array">
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -126,5 +128,33 @@
       <obj_property name="CustomSignalColor">#F0E68C</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/jumpD" type="logic">
+      <obj_property name="ElementShortName">jumpD</obj_property>
+      <obj_property name="ObjectShortName">jumpD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/jrD" type="logic">
+      <obj_property name="ElementShortName">jrD</obj_property>
+      <obj_property name="ObjectShortName">jrD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/jalrD" type="logic">
+      <obj_property name="ElementShortName">jalrD</obj_property>
+      <obj_property name="ObjectShortName">jalrD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/pcsrcD" type="logic">
+      <obj_property name="ElementShortName">pcsrcD</obj_property>
+      <obj_property name="ObjectShortName">pcsrcD</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/stallF" type="logic">
+      <obj_property name="ElementShortName">stallF</obj_property>
+      <obj_property name="ObjectShortName">stallF</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/h1/lwstall" type="logic">
+      <obj_property name="ElementShortName">lwstall</obj_property>
+      <obj_property name="ObjectShortName">lwstall</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/h1/branch_stall" type="logic">
+      <obj_property name="ElementShortName">branch_stall</obj_property>
+      <obj_property name="ObjectShortName">branch_stall</obj_property>
    </wvobject>
 </wave_config>
