@@ -21,24 +21,25 @@
 `include "defines.vh"
 `include "defines2.vh"
 
-module loadData_byteSelect( // 该模块用于�?�择load data 中取整个字，还是取其中的某个byte或halfword
+module loadData_byteSelect( // 该模块用于选择load data 中取整个字，还是取其中的某个byte或halfword
 	input  wire [5:0]  op,
 	input  wire [31:0] read_data,
 	input  wire [31:0] addr, 
 
 	output reg [31:0]final_data,
-	output reg address_error // 是否产生地址错误（未对齐�?
+	output reg address_error // 是否产生地址错误（未对齐
     );
 
 	always @(*) begin 
+		$display("reached lb");
 		case (op)
 
-			`EXE_LW_OP : begin
+			`EXE_LW : begin
 				address_error <= (addr[1:0] == 2'b00) ? 1'b0 : 1'b1;
 				final_data <= read_data;
 			end
 
-			`EXE_LB_OP: begin
+			`EXE_LB: begin
 
 				case (addr[1:0])
 					2'b00: final_data <= {{24{read_data[31]}}, read_data[31:24]};
@@ -50,7 +51,7 @@ module loadData_byteSelect( // 该模块用于�?�择load data 中取整个字，
 				endcase
 			end
 
-			`EXE_LBU_OP: begin
+			`EXE_LBU: begin
 				case (addr[1:0])
 					2'b00: final_data <= {{24{0}}, read_data[31:24]};
 					2'b01: final_data <= {{24{0}}, read_data[23:16]};
@@ -61,7 +62,7 @@ module loadData_byteSelect( // 该模块用于�?�择load data 中取整个字，
 				endcase
 			end
 
-			`EXE_LH_OP: begin
+			`EXE_LH: begin
 
 				address_error <= (addr[0] == 1'b0) ? 1'b0 : 1'b1;
 
@@ -73,12 +74,12 @@ module loadData_byteSelect( // 该模块用于�?�择load data 中取整个字，
 				endcase
 			end
 
-			`EXE_LHU_OP: begin
+			`EXE_LHU: begin
 
 				address_error <= (addr[0] == 1'b0) ? 1'b0 : 1'b1;
 
 				case (addr[1])
-					1'b0: final_data <= {{16{0}}, read_data[15:0]};
+					1'b0: final_data <= {{16{0}}, read_data[15:0]} ;
 					1'b1: final_data <= {{16{0}}, read_data[31:16]};
 					
 					default : /* default */;

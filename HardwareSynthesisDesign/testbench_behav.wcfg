@@ -11,18 +11,18 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="1000001fs"></ZoomEndTime>
-      <Cursor1Time time="950000fs"></Cursor1Time>
+      <ZoomStartTime time="299390fs"></ZoomStartTime>
+      <ZoomEndTime time="456391fs"></ZoomEndTime>
+      <Cursor1Time time="374590fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="127"></NameColumnWidth>
-      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+      <NameColumnWidth column_width="156"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="23" />
    <wave_markers>
-      <marker time="196710" label="" />
-      <marker time="381627" label="" />
+      <marker time="200000" label="" />
+      <marker time="369734" label="" />
    </wave_markers>
    <wvobject fp_name="/testbench/writedata" type="array">
       <obj_property name="ElementShortName">writedata[31:0]</obj_property>
@@ -61,7 +61,6 @@
    <wvobject fp_name="/testbench/test/u/dp/u4/rf" type="array">
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -70,6 +69,18 @@
    <wvobject fp_name="/testbench/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/lbs/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/lbs/final_data" type="array">
+      <obj_property name="ElementShortName">final_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">final_data[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/instrD" type="array">
       <obj_property name="ElementShortName">instrD[31:0]</obj_property>
@@ -80,14 +91,6 @@
    <wvobject fp_name="/testbench/test/u/dp/pc" type="array">
       <obj_property name="ElementShortName">pc[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/pc_next_jump" type="array">
-      <obj_property name="ElementShortName">pc_next_jump[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc_next_jump[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/pc_next_jump_tmp" type="array">
-      <obj_property name="ElementShortName">pc_next_jump_tmp[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc_next_jump_tmp[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/pc_next" type="array">
       <obj_property name="ElementShortName">pc_next[31:0]</obj_property>
@@ -109,16 +112,19 @@
       <obj_property name="ElementShortName">writeregE[4:0]</obj_property>
       <obj_property name="ObjectShortName">writeregE[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/balE" type="logic">
-      <obj_property name="ElementShortName">balE</obj_property>
-      <obj_property name="ObjectShortName">balE</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/c/u1/bal" type="logic">
-      <obj_property name="ElementShortName">bal</obj_property>
-      <obj_property name="ObjectShortName">bal</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/test/u/c/u1/rt" type="array">
       <obj_property name="ElementShortName">rt[4:0]</obj_property>
       <obj_property name="ObjectShortName">rt[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/mem_rdata" type="array">
+      <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/lbs/op" type="array">
+      <obj_property name="ElementShortName">op[5:0]</obj_property>
+      <obj_property name="ObjectShortName">op[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
 </wave_config>

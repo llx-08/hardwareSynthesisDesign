@@ -14,6 +14,7 @@ verilog xil_defaultlib  --include "../../../../rtls" \
 "../../../../rtls/hazard_unit.v" \
 "../../../../HardwareSynthesisDesign.srcs/sources_1/new/hilo_distribute.v" \
 "../../../../hilo_reg.v" \
+"../../../../HardwareSynthesisDesign.srcs/sources_1/new/loadData_byteSelect.v" \
 "../../../../HardwareSynthesisDesign.srcs/sources_1/new/maindec.v" \
 "../../../../rtls/mips.v" \
 "../../../../rtls/mux2x1_32.v" \

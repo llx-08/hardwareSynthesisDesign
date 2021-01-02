@@ -45,6 +45,9 @@ wire [1:0]  forwardAE,forwardBE,forwardAD,forwardBD;
 wire [4:0] writeregEtmp, writeregE, writeregM, writeregW,
 		   RtE,RdE,RsE,RsD,RtD, saD, saE;
 //硬综在这里新加了一条saD,saE
+//新加insrtE，instrM
+wire [31:0] instrE;
+wire [31:0] instrM;
 
 wire [31:0] instr_sl2,instrD;
 wire [31:0] pc_plus4F,pc_plus4D,pc_plus4E,
@@ -280,6 +283,16 @@ flopenrc #(32) r8(
 	.q(pc_plus4E)// output reg [WIDTH - 1:0] q
     );
 
+//Decode to Excute instrE
+flopenrc #(32) instD2E(
+	.clk(clka),
+	.rst(rst),
+	.en(~stallD),
+	.clear(1'b0),
+	.d(instrD),// input wire [WIDTH - 1:0] d,
+	.q(instrE)// output reg [WIDTH - 1:0] q
+    );
+
 mux3x1_forward srca_sel(
 	.a(rd1E),// input wire [31:0] a,b,c,
 	.b(aluoutW),
@@ -349,6 +362,16 @@ div divider(
 		.result_o(div_result),// 除法结果
 		.ready_o(ready_o) // 除法运算是否结束
 	);
+
+//Excute 2 Memory InstrM
+flopenrc #(32) instE2M(
+	.clk(clka),
+	.rst(rst),
+	.en(~stallD),
+	.clear(1'b0),
+	.d(instrE),// input wire [WIDTH - 1:0] d,
+	.q(instrM)// output reg [WIDTH - 1:0] q
+    );
 
 //Excute to Memory alu-zero
 flopenrc #(1) r9(
@@ -422,13 +445,28 @@ flopenrc #(32) r14(
 	.q(writeregW)// output reg [WIDTH - 1:0] q
     );
 
+
+
+// lb,lh等——硬综添加：
+wire [31:0] mem_rdata_afterByteSelect;
+wire address_error_ldData;
+
+loadData_byteSelect lbs(
+	.op(instrM[31:26]),
+	.read_data(mem_rdata),
+	.addr(aluoutM),
+	.final_data(mem_rdata_afterByteSelect),
+	.address_error(address_error_ldData)
+	);
+
+
 //Memory to Writeback
 flopenrc #(32) r15(
 	.clk(clka),
 	.rst(rst),
 	.en(1'b1),
 	.clear(1'b0),
-	.d(mem_rdata),// input wire [WIDTH - 1:0] d,
+	.d(mem_rdata_afterByteSelect),// input wire [WIDTH - 1:0] d,
 	.q(ReadDataW)// output reg [WIDTH - 1:0] q
     );
 

@@ -35,15 +35,15 @@ module maindec(
 	assign {regdst, alusrc, memtoreg, regwrite,
 				memen, memwrite, branch, jump,
 				jal, jr, bal,DataMove, WriteHiLo, HiorLo, jalr } = sigs;
-	//regdst：  1表示[15:15]为写回地址，是0表示[20:16]为写回地址
+	//regdst：  1表示[15:11]为写回地址，是0表示[20:16]为写回地址
 	//alusrc：  1表示alu的B操作数来自立即数经过符号位扩展，0表示alu的B操作数来自寄存器堆读出的操作数2
 	//memtoreg：1表示写回register的数是从memory中取出来的，0表示写回register的数是alu的计算结果
 	//regwrite：1表示该指令需要写回寄存器堆，0则反之
 	//memen：   1表示该指令需要使用到memory
 	//memwrite：1表示该指令需要写memory
-	//branch
-	//jump
-	//jal
+	//branch	1表示该指令需要进行branch跳转
+	//jump：	1表示该指令需要跳转，并且需要计算跳转到的那条指令
+	//jal		
 	//jr
 	//bal
 	//DataMove：1表示该指令为DataMove类指令
@@ -73,9 +73,11 @@ module maindec(
 						// R_Type logic
 						`AND, `OR, `XOR, `NOR, `SLL, `SRL, `SRA,
 						`SLLV, `SRLV, `SRAV, `ADD, `ADDU, `SUB,
-						`SUBU, `SLT, `SLTU, `MULT, `MULTU, `DIV,
-						`DIVU:
-							   sigs <= {15'b1_0_0_1_0_0_0_0_0_0_0_0_0_0_0};
+						`SUBU, `SLT, `SLTU:
+							    sigs <= {15'b1_0_0_1_0_0_0_0_0_0_0_0_0_0_0};
+
+						`MULT, `MULTU, `DIV, `DIVU:
+								sigs <= {15'b1_0_0_0_0_0_0_0_0_0_0_0_1_0_0};
 					endcase
 
 			end
@@ -90,7 +92,7 @@ module maindec(
 				  sigs <= {15'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0};
 
 			`EXE_REGIMM_INST: begin
-				$display("Simulation Failed");
+				// $display("Simulation Failed");
 				case(rt)
 				   `BLTZ, `BGEZ:
 						sigs   <= {15'b0_0_0_0_0_0_1_0_0_0_0_0_0_0_0};
@@ -106,8 +108,8 @@ module maindec(
 		//regdst, alusrc, memtoreg, regwrite,memen, memwrite, branch, jump,jal, jr, bal,DataMove, WriteHiLo, HiorLo, jalr
 
 			// 访存指令
-			`LW: sigs  <= {15'b0_1_1_1_1_0_0_0_0_0_0_0_0_0_0};
-			`SW: sigs  <= {15'b0_1_0_0_1_1_0_0_0_0_0_0_0_0_0};
+			`EXE_LB, `EXE_LBU, `EXE_LH, `EXE_LHU, `LW : sigs  <= {15'b0_1_1_1_1_0_0_0_0_0_0_0_0_0_0};
+			`EXE_SB, `EXE_SH, `SW: sigs  <= {15'b0_1_0_0_1_1_0_0_0_0_0_0_0_0_0};
 			
 			default: begin
 				sigs <= 15'b0000_0000_0000_000;
