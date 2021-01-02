@@ -4,13 +4,14 @@ Running: D:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe -wto 283e5f7a1a
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'memtoregM' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:300]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:385]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:386]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:395]
-WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:396]
-WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:47]
-WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/с╡вш/code/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:58]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 1 for port 'memtoregM' [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:300]
+WARNING: [VRFC 10-3091] actual bit length 8 differs from formal bit length 1 for port 'signed_div_i' [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:330]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:397]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:398]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'd' [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:407]
+WARNING: [VRFC 10-3091] actual bit length 5 differs from formal bit length 32 for port 'q' [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/datapath.v:408]
+WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:47]
+WARNING: [VRFC 10-5021] port 'rsta' is not connected on this instance [C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign/rtls/top.v:58]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -28,28 +29,4 @@ Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
 Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
 Compiling module xil_defaultlib.data_ram
 Compiling module xil_defaultlib.maindec
-Compiling module xil_defaultlib.aludec
-Compiling module xil_defaultlib.floprc(WIDTH=1)
-Compiling module xil_defaultlib.floprc(WIDTH=8)
-Compiling module xil_defaultlib.controller
-Compiling module xil_defaultlib.pc
-Compiling module xil_defaultlib.adder
-Compiling module xil_defaultlib.flopenrc(WIDTH=32)
-Compiling module xil_defaultlib.regfile
-Compiling module xil_defaultlib.mux4x1_forwardD
-Compiling module xil_defaultlib.flopenrc(WIDTH=5)
-Compiling module xil_defaultlib.sign_extend
-Compiling module xil_defaultlib.mux3x1_forward
-Compiling module xil_defaultlib.mux2x1_32
-Compiling module xil_defaultlib.hazard_unit
-Compiling module xil_defaultlib.alu
-Compiling module xil_defaultlib.flopenrc(WIDTH=1)
-Compiling module xil_defaultlib.sl2
-Compiling module xil_defaultlib.mux2x1_5
-Compiling module xil_defaultlib.floprc
-Compiling module xil_defaultlib.datapath
-Compiling module xil_defaultlib.mips
-Compiling module xil_defaultlib.top
-Compiling module xil_defaultlib.testbench
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot testbench_behav
+ERROR: [XSIM 43-3294] Signal EXCEPTION_ACCESS_VIOLATION received.
