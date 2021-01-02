@@ -228,7 +228,7 @@ flopenrc #(5) r6(
 	.rst(rst),
 	.en(~stallE),
 	.clear(flushE),
-	.d(instrD[20:16]),// input wire [WIDTH - 1:0] d,
+	.d(RtD),// input wire [WIDTH - 1:0] d,
 	.q(RtE)// output reg [WIDTH - 1:0] q
     );
 

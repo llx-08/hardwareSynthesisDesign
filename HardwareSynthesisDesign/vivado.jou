@@ -11,3 +11,14 @@
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.xpr
+update_compile_order -fileset sources_1
+close [ open C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/hazard_57inst.v w ]
+add_files C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/HardwareSynthesisDesign.srcs/sources_1/new/hazard_57inst.v
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config C:/Users/Finger_Leader/Desktop/hardware/hardwareSynthesisDesign/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
