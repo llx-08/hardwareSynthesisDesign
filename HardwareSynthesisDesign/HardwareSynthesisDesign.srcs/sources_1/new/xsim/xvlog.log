@@ -1,0 +1,56 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/ip/data_ram/sim/data_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module data_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/ip/inst_ram/sim/inst_ram.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module inst_ram
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/adder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adder
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/aludec.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module aludec
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/controller.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module controller
+WARNING: [VRFC 10-3380] identifier 'regwriteM' is used before its declaration [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/controller.v:36]
+WARNING: [VRFC 10-3380] identifier 'memtoregE' is used before its declaration [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/controller.v:37]
+WARNING: [VRFC 10-3380] identifier 'branchD' is used before its declaration [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/controller.v:38]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/flopenrc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module flopenrc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/floprc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module floprc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/hazard_unit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hazard_unit
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/maindec.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module maindec
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mips.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mips
+WARNING: [VRFC 10-3380] identifier 'branch' is used before its declaration [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mips.v:35]
+WARNING: [VRFC 10-3380] identifier 'regwriteW' is used before its declaration [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mips.v:36]
+WARNING: [VRFC 10-3380] identifier 'jump' is used before its declaration [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mips.v:37]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mux2x1_32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux2x1_32
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mux2x1_5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux2x1_5
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mux3x1_forward.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux3x1_forward
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/mux4x1_forwardD.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux4x1_forwardD
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/pc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pc
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/sign_extend.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_extend
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/sl2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sl2
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top
+WARNING: [VRFC 10-3248] data object 'pc' is already declared [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/top.v:37]
+WARNING: [VRFC 10-3703] second declaration of 'pc' ignored [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/rtls/top.v:37]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/sim/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module testbench
+INFO: [VRFC 10-2458] undeclared symbol out_pcsrc, assumed default net type wire [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/sim/testbench.v:42]
+INFO: [VRFC 10-2458] undeclared symbol out_jump, assumed default net type wire [D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/sim/testbench.v:45]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Setup_packages/VivadoProjects/HardwareSynthesisDesign/HardwareSynthesisDesign.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

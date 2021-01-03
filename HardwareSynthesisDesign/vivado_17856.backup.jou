@@ -1,0 +1,97 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sun Jan  3 22:32:56 2021
+# Process ID: 17856
+# Current directory: D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3756 D:\我的文档\大学本科课程\大三上学期课程\硬件综合设计\git-add_hazard\HardwareSynthesisDesign\HardwareSynthesisDesign.xpr
+# Log file: D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/vivado.log
+# Journal file: D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/HardwareSynthesisDesign.xpr
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/instrD}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/instrE}} 
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/instrM}} 
+save_wave_config {D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+save_wave_config {D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/mem_wdata}} 
+save_wave_config {D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg}
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/mem_wdata_afterByteSelect}} 
+save_wave_config {D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg}
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/sbs/final_data}} 
+save_wave_config {D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+current_wave_config {testbench_behav.wcfg}
+add_wave {{/testbench/test/u/dp/sbs/write_data}} 
+save_wave_config {D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+save_wave_config {D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg}
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
+launch_simulation
+open_wave_config D:/我的文档/大学本科课程/大三上学期课程/硬件综合设计/git-add_hazard/HardwareSynthesisDesign/testbench_behav.wcfg
+source testbench.tcl
+close_sim
