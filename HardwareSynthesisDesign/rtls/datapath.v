@@ -29,7 +29,7 @@ module datapath(
 	input wire  [7:0] alucontrolE,
 	input wire  [31:0] instr, mem_rdata,
 
-	input wire HiorLoW, DataMoveW, WriteHiLoW, jrD, jalE, balE, jalrD, jalrE, // 硬综添加
+	input wire HiorLoW, DataMoveW, WriteHiLoW, MulDivW, jrD, jalE, balE, jalrD, jalrE, // 硬综添加
 
 	output wire out_pcsrc,out_zero,out_flushE,
 	output wire [31:0] pc,out_pc_next_jump,
@@ -38,10 +38,22 @@ module datapath(
 	output wire [31:0] mem_wdata,
 	output wire [31:0] SrcAEout,SrcBEout,
 
-	output wire [3:0] write_mask
+	output wire [3:0] write_mask,
+	output wire stallF, 
+	output wire stallD,  
+	output wire stallE, 
+	output wire stallPC, 
+	output wire stallM, 
+	output wire stallW,
+	output wire flushE,
+	output wire flushF, 
+	output wire flushD, 
+	output wire flushPC, 
+	output wire flushM, 
+	output wire flushW
     );
 wire pcsrcD,zero,zeroM;
-wire stallF,stallD,flushE;
+
 wire [1:0]  forwardAE,forwardBE,forwardAD,forwardBD;
 
 wire [4:0] writeregEtmp, writeregE, writeregM, writeregW,
@@ -68,18 +80,20 @@ wire [31:0] pc_plus4F,pc_plus4D,pc_plus4E,
 
 // 除法部分
 wire signed_div_i;
-wire opdata1_i;
-wire opdata2_i;
+wire [31:0] opdata1_i;
+wire [31:0] opdata2_i;
 wire start_i;
 wire end_i;
-wire div_result;
+wire [63:0] div_result;
+wire [63:0] muldiv_result, muldiv_resultM, muldiv_resultW;
 wire ready_o;
-
-assign signed_div_i = (alucontrolE == `EXE_DIV_OP) ? 1'b1 : 1'b0;
+wire stall_for_div;
+wire flush_div;
+// assign signed_div_i = (alucontrolE == `EXE_DIV_OP) ? 1'b1 : 1'b0;
 assign opdata1_i = SrcAE;
 assign opdata2_i = SrcBE;
-assign start_i = (alucontrolE == `EXE_DIV_OP | 
-				  alucontrolE == `EXE_DIVU_OP) ? 1'b1 : 1'b0;
+// assign start_i = (alucontrolE == `EXE_DIV_OP | 
+// 				  alucontrolE == `EXE_DIVU_OP) ? 1'b1 : 1'b0;
 assign end_i = 1'b0;
 
 assign out_flushE = flushE;
@@ -97,7 +111,7 @@ assign SrcBEout = writeregW;
 //pc
 pc u1(
 	.clk(clka),
-	.en(~stallF),
+	.en(~stallPC),
 	.rst(rst),// input wire clk, rst,
 	.din(pc_next_jump),// input wire [31:0] din,
 	.q(pc)// output reg [31:0] q
@@ -124,7 +138,7 @@ flopenrc #(32) r1(
 flopenrc #(32) r2(
 	.clk(clka),
 	.rst(rst),
-	.en(~stallD),
+	.en(~stallF),
 	.clear(pcsrcD),
 	.d(pc_plus4F),// input wire [WIDTH - 1:0] d,
 	.q(pc_plus4D)// output reg [WIDTH - 1:0] q
@@ -290,7 +304,7 @@ flopenrc #(32) instD2E(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallD),
-	.clear(1'b0),
+	.clear(flushD),
 	.d(instrD),// input wire [WIDTH - 1:0] d,
 	.q(instrE)// output reg [WIDTH - 1:0] q
     );
@@ -335,6 +349,8 @@ hazard_57inst h1(
 	.regwriteE(regwriteE),
 	.regwriteM(regwriteM),
 	.regwriteW(regwriteW),// output wire regwriteM,regwriteW,
+	.stall_divE(stall_divE),
+	.flush_div(flush_div),
     .stallF(stallF),
     .stallD(stallD),
 	.stallE(stallE),
@@ -342,19 +358,30 @@ hazard_57inst h1(
 	.stallW(stallW),
 	.stallPC(stallPC),
     .flushE(flushE),
+	.flushF(flushF), 
+	.flushD(flushD), 
+	.flushPC(flushPC), 
+	.flushM(flushM), 
+	.flushW(flushW),
     .forwardAD(forwardAD),
     .forwardBD(forwardBD),
     .pcsrcD(pcsrcD)
     );
 
 //alu
+wire [63:0] mul_res;
 alu u6(
 	.a(SrcAE),// input wire [31:0] a,
 	.b(SrcBE),// input wire [31:0] b,
 	.op(alucontrolE),// alucontrol
 	.sa(saE),
 	.y(alu_result_tmp),// output reg [31:0] s
-    .zero(zero)
+	.mul_res(mul_res),
+	.div_ready(ready_o),
+	.start_div(start_i),
+	.signed_div(signed_div_i),
+	.stall_div(stall_divE),
+	.flush_div(flush_div)
     );
 
 div divider(
@@ -364,7 +391,7 @@ div divider(
 		.opdata1_i(opdata1_i),// 被除数
 		.opdata2_i(opdata2_i),// 除数
 		.start_i(start_i),  // 是否开始除法
-		.annul_i(end_div),  // 是否从外界停止除法
+		.annul_i(1'b0),  // 是否从外界停止除法
 		.result_o(div_result),// 除法结果
 		.ready_o(ready_o) // 除法运算是否结束
 	);
@@ -374,7 +401,7 @@ flopenrc #(32) instE2M(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallM),
-	.clear(1'b0),
+	.clear(flushM),
 	.d(instrE),// input wire [WIDTH - 1:0] d,
 	.q(instrM)// output reg [WIDTH - 1:0] q
     );
@@ -384,7 +411,7 @@ flopenrc #(1) r9(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallM),
-	.clear(1'b0),
+	.clear(flushM),
 	.d(zero),// input wire [WIDTH - 1:0] d,
 	.q(zeroM)// output reg [WIDTH - 1:0] q
     );
@@ -394,7 +421,7 @@ flopenrc #(32) r10(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallM),
-	.clear(1'b0),
+	.clear(flushM),
 	.d(alu_result),// input wire [WIDTH - 1:0] d,
 	.q(aluoutM)// output reg [WIDTH - 1:0] q
     );
@@ -404,7 +431,7 @@ flopenrc #(32) r11(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallM),
-	.clear(1'b0),
+	.clear(flushM),
 	.d(writedataE),// input wire [WIDTH - 1:0] d,
 	.q(writedataM)// output reg [WIDTH - 1:0] q
     );
@@ -436,7 +463,7 @@ flopenrc #(5) r13(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallM),
-	.clear(1'b0),
+	.clear(flushM),
 	.d(writeregE),// input wire [WIDTH - 1:0] d,
 	.q(writeregM)// output reg [WIDTH - 1:0] q
     );
@@ -446,7 +473,7 @@ flopenrc #(32) r14(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallW),
-	.clear(1'b0),
+	.clear(flushW),
 	.d(writeregM),// input wire [WIDTH - 1:0] d,
 	.q(writeregW)// output reg [WIDTH - 1:0] q
     );
@@ -479,16 +506,17 @@ flopenrc #(32) r15(
 	.clk(clka),
 	.rst(rst),
 	.en(~stallW),
-	.clear(1'b0),
+	.clear(flushW),
 	.d(mem_rdata_afterByteSelect),// input wire [WIDTH - 1:0] d,
 	.q(ReadDataW)// output reg [WIDTH - 1:0] q
     );
 
 //Memory to Writeback aluoutM - aluoutW
-floprc #(32) r16(
+flopenrc #(32) r16(
 	.clk(clka),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallW),
+	.clear(flushW),
 	.d(aluoutM),// input wire [WIDTH - 1:0] d,
 	.q(aluoutW)// output reg [WIDTH - 1:0] q
     );
@@ -543,14 +571,14 @@ mux2x1_32 mux_wd3(
 //添加HiLo模块与对应通路，mux
 //根据HiorLoW信号来决定将aluoutW输入的信号是分配给hi还是分配给lo
 
-wire [31:0] hi, lo, hi_o, lo_o, hilo_out;
+wire [31:0] hi_DM, lo_DM, hi_o, lo_o, hilo_out, hi, lo;
 
 
 hilo_distribute hilo_d(
     .in(aluoutW), //input  wire [31:0] in
 	.s(HiorLoW),  //input  wire  s
-	.hi(hi), 	 //output wire [31:0] hi
-	.lo(lo)  	 //output wire [31:0] hi
+	.hi(hi_DM), 	 //output wire [31:0] hi
+	.lo(lo_DM)  	 //output wire [31:0] hi
     );
 
 
@@ -636,4 +664,46 @@ eqcmp branch_cmp(
 	.y(pcsrcD)// output wire y
     );
 
+//----------------------------------------------------------
+//----HiLo从除法选还是乘法选-------------------------------
+mux2x1_64 MDsrc( //a是1，b是0
+	.a(div_result),// input wire [31:0] a,
+	.b(mul_res),// input wire [31:0] b,
+	.s(instrE[1]),// alusrcE
+	.y(muldiv_result)// output wire [31:0] y 
+    );
+//----------------------------------------------------------
+//----HiLo从除法选还是datamove-------------------------------
+mux2x1_32 Hisrc( //a是1，b是0
+	.a(muldiv_resultW[63:32]),// input wire [31:0] a,
+	.b(hi_DM),// input wire [31:0] b,
+	.s(MulDivW),// alusrcE
+	.y(hi)// output wire [31:0] y 
+    );
+mux2x1_32 Losrc( //a是1，b是0
+	.a(muldiv_resultW[31:0]),// input wire [31:0] a,
+	.b(lo_DM),// input wire [31:0] b,
+	.s(MulDivW),// alusrcE
+	.y(lo)// output wire [31:0] y 
+    );
+
+// muldiv_result E2M
+flopenrc #(64) muldivE2M(
+	.clk(clka),
+	.rst(rst),
+	.en(~stallM),
+	.clear(flushM),
+	.d(muldiv_result),// input wire [WIDTH - 1:0] d,
+	.q(muldiv_resultM)// output reg [WIDTH - 1:0] q
+    );
+
+// muldiv_result M2W
+flopenrc #(64) muldivM2W(
+	.clk(clka),
+	.rst(rst),
+	.en(~stallW),
+	.clear(flushW),
+	.d(muldiv_resultM),// input wire [WIDTH - 1:0] d,
+	.q(muldiv_resultW)// output reg [WIDTH - 1:0] q
+    );
 endmodule

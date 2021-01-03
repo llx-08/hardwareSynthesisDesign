@@ -55,7 +55,6 @@ module div(
 	reg[31:0] divisor;	 
 	reg[31:0] temp_op1;
 	reg[31:0] temp_op2;
-	
 	assign div_temp = {1'b0,dividend[63:32]} - {1'b0,divisor};
 
 	always @ (posedge clk) begin
@@ -119,13 +118,13 @@ module div(
 		  		end	
 		  	end
 		  	`DivEnd:			begin               //DivEnd״̬
-        	result_o <= {dividend[64:33], dividend[31:0]};  
-          ready_o <= `DivResultReady;
-          if(start_i == `DivStop) begin
-          	state <= `DivFree;
-						ready_o <= `DivResultNotReady;
-						result_o <= {`ZeroWord,`ZeroWord};       	
-          end		  	
+        		result_o <= {dividend[64:33], dividend[31:0]};  
+         		ready_o <= `DivResultReady;
+         		if(start_i == `DivStop) begin
+          			state <= `DivFree;
+					ready_o <= `DivResultNotReady;
+					result_o <= {`ZeroWord,`ZeroWord};
+          		end		  	
 		  	end
 		  endcase
 		end

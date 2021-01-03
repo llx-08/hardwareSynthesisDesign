@@ -25,9 +25,11 @@ module hazard_57inst(
     input wire [4:0] RsD,RtD,RsE,RtE,writeregE,writeregM,writeregW,
     input stall_divE,
     input stall_mulE,
+    input flush_div,
 	input wire regwriteE,regwriteM,regwriteW,memtoregE,memtoregM,pcsrcD,
 	output wire [1:0] forwardAE,forwardBE,forwardAD,forwardBD,
-    output wire stallF,stallD,flushE,stallPC,stallE,stallM,stallW
+    output wire stallF,stallD,stallPC,stallE,stallM,stallW,
+    output wire flushF, flushD, flushE, flushM, flushW, flushPC
     );
     
 	assign forwardAD = ((RsD != 5'b0) && (RsD == writeregM) && regwriteM)? /*1'b1:1'b0;*/2'b10:
@@ -62,6 +64,8 @@ module hazard_57inst(
     assign stallM = stall[4];
     assign stallW = stall[5];
 
+    assign flushM = stall_divE;
+
     wire stall_from_ex, stall_from_id;
     assign stall_from_ex = stall_divE | stall_mulE;
     assign stall_from_id = lwstall;
@@ -69,9 +73,9 @@ module hazard_57inst(
         if(rst == `RstEnable) begin
             stall <= 6'b000000;
         end else if(stall_from_id == `Stop) begin
-            stall <= 6'b000011;
-        end else if(stall_from_ex == `Stop) begin
             stall <= 6'b000111;
+        end else if(stall_from_ex == `Stop) begin
+            stall <= 6'b001111;
         end
         else stall <= 6'b000000;
     end

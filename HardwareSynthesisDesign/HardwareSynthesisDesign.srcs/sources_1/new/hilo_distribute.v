@@ -26,7 +26,8 @@ module hilo_distribute(
 	output wire [31:0] hi, lo
     );
 
-	assign hi = (s == 1'b1) ? in : 32'b0;
-	assign lo = (s == 1'b0) ? in : 32'b0; 
+	// 表达式为否结果置0通过了测试，现改为hi,lo
+	assign hi = (s == 1'b1) ? in : hi;
+	assign lo = (s == 1'b0) ? in : lo; 
 
 endmodule

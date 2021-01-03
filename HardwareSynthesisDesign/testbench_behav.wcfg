@@ -11,20 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="282127fs"></ZoomStartTime>
-      <ZoomEndTime time="443128fs"></ZoomEndTime>
-      <Cursor1Time time="347527fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="3540001fs"></ZoomEndTime>
+      <Cursor1Time time="915000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="156"></NameColumnWidth>
-      <ValueColumnWidth column_width="70"></ValueColumnWidth>
+      <NameColumnWidth column_width="202"></NameColumnWidth>
+      <ValueColumnWidth column_width="120"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="34" />
-   <wave_markers>
-      <marker time="200000" label="" />
-      <marker time="369734" label="" />
-      <marker time="384327" label="" />
-   </wave_markers>
+   <WVObjectSize size="60" />
    <wvobject fp_name="/testbench/writedata" type="array">
       <obj_property name="ElementShortName">writedata[31:0]</obj_property>
       <obj_property name="ObjectShortName">writedata[31:0]</obj_property>
@@ -32,12 +27,6 @@
    <wvobject fp_name="/testbench/aluoutbefore" type="array">
       <obj_property name="ElementShortName">aluoutbefore[31:0]</obj_property>
       <obj_property name="ObjectShortName">aluoutbefore[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/u6/op" type="array">
-      <obj_property name="ElementShortName">op[7:0]</obj_property>
-      <obj_property name="ObjectShortName">op[7:0]</obj_property>
-      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/iram/douta" type="array">
       <obj_property name="ElementShortName">douta[31:0]</obj_property>
@@ -62,7 +51,6 @@
    <wvobject fp_name="/testbench/test/u/dp/u4/rf" type="array">
       <obj_property name="ElementShortName">rf[31:0][31:0]</obj_property>
       <obj_property name="ObjectShortName">rf[31:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/rst" type="logic">
       <obj_property name="ElementShortName">rst</obj_property>
@@ -73,6 +61,12 @@
       <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/u6/op" type="array">
+      <obj_property name="ElementShortName">op[7:0]</obj_property>
+      <obj_property name="ObjectShortName">op[7:0]</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/lbs/final_data" type="array">
       <obj_property name="ElementShortName">final_data[31:0]</obj_property>
@@ -86,10 +80,6 @@
       <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/pc" type="array">
-      <obj_property name="ElementShortName">pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/pc_next" type="array">
       <obj_property name="ElementShortName">pc_next[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc_next[31:0]</obj_property>
@@ -97,10 +87,6 @@
    <wvobject fp_name="/testbench/test/u/dp/instr_sl2" type="array">
       <obj_property name="ElementShortName">instr_sl2[31:0]</obj_property>
       <obj_property name="ObjectShortName">instr_sl2[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/instrD" type="array">
-      <obj_property name="ElementShortName">instrD[31:0]</obj_property>
-      <obj_property name="ObjectShortName">instrD[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/out_pcsrc" type="logic">
       <obj_property name="ElementShortName">out_pcsrc</obj_property>
@@ -118,13 +104,6 @@
       <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/testbench/test/u/dp/lbs/op" type="array">
-      <obj_property name="ElementShortName">op[5:0]</obj_property>
-      <obj_property name="ObjectShortName">op[5:0]</obj_property>
-      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/testbench/test/u/c/jumpD" type="logic">
       <obj_property name="ElementShortName">jumpD</obj_property>
       <obj_property name="ObjectShortName">jumpD</obj_property>
@@ -140,10 +119,6 @@
    <wvobject fp_name="/testbench/test/u/dp/pcsrcD" type="logic">
       <obj_property name="ElementShortName">pcsrcD</obj_property>
       <obj_property name="ObjectShortName">pcsrcD</obj_property>
-   </wvobject>
-   <wvobject fp_name="/testbench/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
    <wvobject fp_name="/testbench/test/u/dp/stallF" type="logic">
       <obj_property name="ElementShortName">stallF</obj_property>
@@ -172,5 +147,134 @@
    <wvobject fp_name="/testbench/test/u/dp/RtE" type="array">
       <obj_property name="ElementShortName">RtE[4:0]</obj_property>
       <obj_property name="ObjectShortName">RtE[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/u4/rf[3]" type="array">
+      <obj_property name="ElementShortName">[3][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/u4/rf[2]" type="array">
+      <obj_property name="ElementShortName">[2][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#DCDCDC</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/writeregE" type="array">
+      <obj_property name="ElementShortName">writeregE[4:0]</obj_property>
+      <obj_property name="ObjectShortName">writeregE[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/RdE" type="array">
+      <obj_property name="ElementShortName">RdE[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RdE[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/RtE" type="array">
+      <obj_property name="ElementShortName">RtE[4:0]</obj_property>
+      <obj_property name="ObjectShortName">RtE[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/regdstE" type="logic">
+      <obj_property name="ElementShortName">regdstE</obj_property>
+      <obj_property name="ObjectShortName">regdstE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/u1/regdst" type="logic">
+      <obj_property name="ElementShortName">regdst</obj_property>
+      <obj_property name="ObjectShortName">regdst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/lbs/op" type="array">
+      <obj_property name="ElementShortName">op[5:0]</obj_property>
+      <obj_property name="ObjectShortName">op[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#F0E68C</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/div_result" type="array">
+      <obj_property name="ElementShortName">div_result[63:0]</obj_property>
+      <obj_property name="ObjectShortName">div_result[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/muldiv_result" type="array">
+      <obj_property name="ElementShortName">muldiv_result[63:0]</obj_property>
+      <obj_property name="ObjectShortName">muldiv_result[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/mul_res" type="array">
+      <obj_property name="ElementShortName">mul_res[63:0]</obj_property>
+      <obj_property name="ObjectShortName">mul_res[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/hi" type="array">
+      <obj_property name="ElementShortName">hi[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hi[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/lo" type="array">
+      <obj_property name="ElementShortName">lo[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/instrD" type="array">
+      <obj_property name="ElementShortName">instrD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instrD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/MulDivW" type="logic">
+      <obj_property name="ElementShortName">MulDivW</obj_property>
+      <obj_property name="ObjectShortName">MulDivW</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/ready_o" type="logic">
+      <obj_property name="ElementShortName">ready_o</obj_property>
+      <obj_property name="ObjectShortName">ready_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/start_i" type="logic">
+      <obj_property name="ElementShortName">start_i</obj_property>
+      <obj_property name="ObjectShortName">start_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/div_result" type="array">
+      <obj_property name="ElementShortName">div_result[63:0]</obj_property>
+      <obj_property name="ObjectShortName">div_result[63:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/alucontrolE" type="array">
+      <obj_property name="ElementShortName">alucontrolE[7:0]</obj_property>
+      <obj_property name="ObjectShortName">alucontrolE[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/divider/signed_div_i" type="logic">
+      <obj_property name="ElementShortName">signed_div_i</obj_property>
+      <obj_property name="ObjectShortName">signed_div_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/divider/opdata1_i" type="array">
+      <obj_property name="ElementShortName">opdata1_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">opdata1_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/divider/opdata2_i" type="array">
+      <obj_property name="ElementShortName">opdata2_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">opdata2_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/u6/stall_div" type="logic">
+      <obj_property name="ElementShortName">stall_div</obj_property>
+      <obj_property name="ObjectShortName">stall_div</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/stall_divE" type="logic">
+      <obj_property name="ElementShortName">stall_divE</obj_property>
+      <obj_property name="ObjectShortName">stall_divE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/u6/start_div" type="logic">
+      <obj_property name="ElementShortName">start_div</obj_property>
+      <obj_property name="ObjectShortName">start_div</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/dp/u6/div_ready" type="logic">
+      <obj_property name="ElementShortName">div_ready</obj_property>
+      <obj_property name="ObjectShortName">div_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/u1/MulDiv" type="logic">
+      <obj_property name="ElementShortName">MulDiv</obj_property>
+      <obj_property name="ObjectShortName">MulDiv</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/test/u/c/flushM" type="logic">
+      <obj_property name="ElementShortName">flushM</obj_property>
+      <obj_property name="ObjectShortName">flushM</obj_property>
    </wvobject>
 </wave_config>

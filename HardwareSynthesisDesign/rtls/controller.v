@@ -21,8 +21,20 @@
 
 
 module controller(
-	input wire clk,rst,flushE,
+	input wire clk,rst,
 	input wire [31:0] instr,
+	input wire stallF, 
+	input wire stallD, 
+	input wire stallE, 
+	input wire stallPC, 
+	input wire stallM, 
+	input wire stallW,
+	input wire flushE,
+	input wire flushF, 
+	input wire flushD, 
+	input wire flushPC, 
+	input wire flushM, 
+	input wire flushW,
 	output wire memtoregW, 
 				regwriteM_out,memtoregE_out,
 				regwriteW, regwriteE,
@@ -34,7 +46,7 @@ module controller(
 	output wire [7:0] alucontrolE,
 
 	output wire jrD, jalE, balE, jalrD, jalrE,
-	output wire DataMoveW, WriteHiLoW, HiorLoW
+	output wire DataMoveW, WriteHiLoW, HiorLoW, MulDivW
     );
 
 wire memtoregD,memtoregE,memtoregM,
@@ -45,9 +57,9 @@ wire memtoregD,memtoregE,memtoregM,
 	 branchD,branchE;
 wire memwrite;// 没什么用，防止报错
 
-wire DataMoveD, WriteHiLoD, HiorLoD;
-wire DataMoveE, WriteHiLoE, HiorLoE;
-wire DataMoveM, WriteHiLoM, HiorLoM;
+wire DataMoveD, WriteHiLoD, HiorLoD, MulDivD;
+wire DataMoveE, WriteHiLoE, HiorLoE, MulDivE;
+wire DataMoveM, WriteHiLoM, HiorLoM, MulDivM;
 
 wire jalD;
 wire balD;
@@ -79,7 +91,8 @@ maindec u1(
 	.jalr(jalrD),
 	.DataMove(DataMoveD), 
 	.WriteHiLo(WriteHiLoD), 
-	.HiorLo(HiorLoD)
+	.HiorLo(HiorLoD),
+	.MulDiv(MulDivD)
 	);
 
 aludec u2(
@@ -88,107 +101,120 @@ aludec u2(
 	.alucontrol(alucontrolD)
     );
 
-floprc #(1) c1(
+flopenrc #(1) c1(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(regwriteD),// input wire [WIDTH - 1:0] d,
 	.q(regwriteE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) c2(
+flopenrc #(1) c2(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(memtoregD),// input wire [WIDTH - 1:0] d,
 	.q(memtoregE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) c3(
+flopenrc #(1) c3(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(memwriteD),// input wire [WIDTH - 1:0] d,
 	.q(memwriteE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(8) c5(
+flopenrc #(8) c5(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(alucontrolD),// input wire [WIDTH - 1:0] d,
 	.q(alucontrolE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) c6(
+flopenrc #(1) c6(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallE),
 	.clear(1'b0),
 	.d(alusrcD),// input wire [WIDTH - 1:0] d,
 	.q(alusrcE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) c7(
+flopenrc #(1) c7(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallE),
 	.clear(1'b0),
 	.d(regdstD),// input wire [WIDTH - 1:0] d,
 	.q(regdstE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) cc1(
+flopenrc #(1) cc1(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallE),
 	.clear(1'b0),
 	.d(memenD),// input wire [WIDTH - 1:0] d,
 	.q(memenE)
 	);
 
-floprc #(1) cc2(
+flopenrc #(1) cc2(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(memenE),// input wire [WIDTH - 1:0] d,
 	.q(memenM)
 	);
 
 //Excute to Memory controller
-floprc #(1) c8(
+flopenrc #(1) c8(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(regwriteE),// input wire [WIDTH - 1:0] d,
 	.q(regwriteM)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) c9(
+flopenrc #(1) c9(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(memtoregE),// input wire [WIDTH - 1:0] d,
 	.q(memtoregM)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) c10(
+flopenrc #(1) c10(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallM),
 	.clear(1'b0),
 	.d(memwriteE),// input wire [WIDTH - 1:0] d,
 	.q(memwriteM)// output reg [WIDTH - 1:0] q
     );
 
 //Memory to Writeback controller
-floprc #(1) c12(
+flopenrc #(1) c12(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallW),
 	.clear(1'b0),
 	.d(regwriteM),// input wire [WIDTH - 1:0] d,
 	.q(regwriteW)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) c13(
+flopenrc #(1) c13(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallW),
 	.clear(1'b0),
 	.d(memtoregM),// input wire [WIDTH - 1:0] d,
 	.q(memtoregW)// output reg [WIDTH - 1:0] q
@@ -200,76 +226,85 @@ floprc #(1) c13(
 // DataMove类指令所需信号------------------------------------------
 
 // DataMove
-floprc #(1) DataMove_D2E(
+flopenrc #(1) DataMove_D2E(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(DataMoveD),// input wire [WIDTH - 1:0] d,
 	.q(DataMoveE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) DataMove_E2M(
+flopenrc #(1) DataMove_E2M(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallM),
+	.clear(flushM),
 	.d(DataMoveE),// input wire [WIDTH - 1:0] d,
 	.q(DataMoveM)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) DataMove_M2W(
+flopenrc #(1) DataMove_M2W(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallW),
+	.clear(flushW),
 	.d(DataMoveM),// input wire [WIDTH - 1:0] d,
 	.q(DataMoveW)// output reg [WIDTH - 1:0] q
     );
 
 // WriteHiLo
-floprc #(1) WriteHiLo_D2E(
+flopenrc #(1) WriteHiLo_D2E(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(WriteHiLoD),// input wire [WIDTH - 1:0] d,
 	.q(WriteHiLoE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) WriteHiLo_E2M(
+flopenrc #(1) WriteHiLo_E2M(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallM),
+	.clear(flushM),
 	.d(WriteHiLoE),// input wire [WIDTH - 1:0] d,
 	.q(WriteHiLoM)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) WriteHiLo_M2W(
+flopenrc #(1) WriteHiLo_M2W(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallW),
+	.clear(flushW),
 	.d(WriteHiLoM),// input wire [WIDTH - 1:0] d,
 	.q(WriteHiLoW)// output reg [WIDTH - 1:0] q
     );
 
 // HiorLo
-floprc #(1) HiorLo_D2E(
+flopenrc #(1) HiorLo_D2E(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(HiorLoD),// input wire [WIDTH - 1:0] d,
 	.q(HiorLoE)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) HiorLo_E2M(
+flopenrc #(1) HiorLo_E2M(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallM),
+	.clear(flushM),
 	.d(HiorLoE),// input wire [WIDTH - 1:0] d,
 	.q(HiorLoM)// output reg [WIDTH - 1:0] q
     );
 
-floprc #(1) HiorLo_M2W(
+flopenrc #(1) HiorLo_M2W(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallW),
+	.clear(flushW),
 	.d(HiorLoM),// input wire [WIDTH - 1:0] d,
 	.q(HiorLoW)// output reg [WIDTH - 1:0] q
     );
@@ -281,30 +316,59 @@ floprc #(1) HiorLo_M2W(
 // j类指令所需信号---------------------------------------
 
 //jal
-floprc #(1) jal_D2E(
+flopenrc #(1) jal_D2E(
 	.clk(clk),
 	.rst(rst),
-	.clear(1'b0),
+	.en(~stallE),
+	.clear(flushE),
 	.d(jalD),// input wire [WIDTH - 1:0] d,
 	.q(jalE)// output reg [WIDTH - 1:0] q
     );
 
 //bal
-floprc #(1) bL_D2E(
+flopenrc #(1) bL_D2E(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallE),
 	.clear(1'b0),
 	.d(balD),// input wire [WIDTH - 1:0] d,
 	.q(balE)// output reg [WIDTH - 1:0] q
     );
 
 //jalr
-floprc #(1) jalr_D2E(
+flopenrc #(1) jalr_D2E(
 	.clk(clk),
 	.rst(rst),
+	.en(~stallE),
 	.clear(1'b0),
 	.d(jalrD),// input wire [WIDTH - 1:0] d,
 	.q(jalrE)// output reg [WIDTH - 1:0] q
     );
 
+// MulDiv D->E
+flopenrc #(1) MulDiv_D2E(
+	.clk(clk),
+	.rst(rst),
+	.en(~stallE),
+	.clear(flushE),
+	.d(MulDivD),// input wire [WIDTH - 1:0] d,
+	.q(MulDivE)// output reg [WIDTH - 1:0] q
+    );
+flopenrc #(1) MulDiv_E2M(
+	.clk(clk),
+	.rst(rst),
+	.en(~stallM),
+	.clear(flushM),
+	.d(MulDivE),// input wire [WIDTH - 1:0] d,
+	.q(MulDivM)// output reg [WIDTH - 1:0] q
+    );
+
+flopenrc #(1) MulDiv_M2W(
+	.clk(clk),
+	.rst(rst),
+	.en(~stallW),
+	.clear(flushW),
+	.d(MulDivM),// input wire [WIDTH - 1:0] d,
+	.q(MulDivW)// output reg [WIDTH - 1:0] q
+    );
 endmodule
